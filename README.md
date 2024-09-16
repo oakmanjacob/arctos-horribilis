@@ -37,10 +37,10 @@ jupyter lab
 This should open a browser window to `localhost:8888/lab` showing this directory in jupyter. From here, navigate to the notebooks directory and open the .ipynb file you wish to access.
 
 ## References
-Jupyter Notebook documentation (https://docs.jupyter.org/en/latest/)
-Jupyter Notebook widgets (https://ipywidgets.readthedocs.io/en/8.1.5/_static/notebooks/index.html?path=Widget+List.ipynb)
+- Jupyter Notebook documentation (https://docs.jupyter.org/en/latest/)
+- Jupyter Notebook widgets (https://ipywidgets.readthedocs.io/en/8.1.5/_static/notebooks/index.html?path=Widget+List.ipynb)
 
 
 ## Future Work
-- [ ] Deployment as an interactive website using Mercury (https://runmercury.com/)
+- [ ] Deployment as an interactive website using Mercury (https://runmercury.com/)  
 - [ ] Arctos API Integration so we can pull and cache information dynamically
