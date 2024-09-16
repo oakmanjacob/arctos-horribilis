@@ -3,7 +3,21 @@ Jacob Oakman
 Neha Pasricha
 
 ## Overview
-This project is meant to provide data visualizations and analysis for museum data retrieved from Arctos DB (https://arctos.database.museum/) using Python Jupyter Notebooks. 
+This project is meant to provide data visualizations and analysis for museum data retrieved from Arctos DB (https://arctos.database.museum/) using Python Jupyter Notebooks.
+
+## Notebooks
+The following notebooks
+
+### Species Report
+File: `species_report.ipynb`
+
+
+### Museum Report
+File: `museum_report.ipynb`
+
+
+### Ranges Report
+File: `ranges_report.ipynb`
 
 ## Setup
 
@@ -18,20 +32,4 @@ Start the Jupyter Kernel
 jupyter notebook
 ```
 
-This should open a browser window to localhost:888/tree showing this directory in jupyter. From here, navigate to the notebooks directory and open the .ipynb file you wish to access.
-
-## Notebooks
-The following notebooks are provided to visualize data 
-
-### Species Report
-File: `species_report.ipynb`
-
-
-### Museum Report
-File: `museum_report.ipynb`
-
-
-### Ranges Report
-File: `ranges_report.ipynb`
-
-
+This should open a browser window to `localhost:888/tree` showing this directory in jupyter. From here, navigate to the notebooks directory and open the .ipynb file you wish to access.
