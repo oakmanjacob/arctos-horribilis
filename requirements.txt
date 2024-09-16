@@ -1,4 +1,7 @@
+jupyterlab
 pandas
 numpy
 itables
 matplotlib
+geopandas
+ipywidgets
