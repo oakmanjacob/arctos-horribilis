@@ -5,3 +5,5 @@ itables
 matplotlib
 geopandas
 ipywidgets
+plotly
+dash

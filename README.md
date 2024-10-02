@@ -1,6 +1,6 @@
 # Data Analysis for Arctos
-Jacob Oakman  
-Neha Pasricha
+Jacob Oakman
+Tokay Alberts
 
 ## Overview
 This project is meant to provide data visualizations and analysis for museum data retrieved from Arctos DB (https://arctos.database.museum/) using Python Jupyter Notebooks.
