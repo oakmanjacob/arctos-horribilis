@@ -13,3 +13,5 @@ pint
 plotly-geo
 pyshp
 shapely
+addfips
+statsmodels
