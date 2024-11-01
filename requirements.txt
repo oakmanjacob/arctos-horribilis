@@ -9,3 +9,7 @@ plotly
 dash
 scikit-learn
 scipy
+pint
+plotly-geo
+pyshp
+shapely

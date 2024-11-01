@@ -1,0 +1,85 @@
+specimen_count,species,county
+1,Antrozous pallidus,Butte County
+8,Antrozous pallidus,Contra Costa County
+1,Antrozous pallidus,Inyo County
+2,Antrozous pallidus,Mariposa County
+1,Antrozous pallidus,Mendocino County
+6,Antrozous pallidus,Riverside County
+30,Antrozous pallidus,San Bernardino County
+1,Antrozous pallidus,Tulare County
+1,Antrozous pallidus,Tuolumne County
+3,Corynorhinus townsendii,San Bernardino County
+2,Corynorhinus townsendii,San Diego County
+1,Eptesicus fuscus,Los Angeles County
+1,Eptesicus fuscus,Madera County
+1,Eptesicus fuscus,Mendocino County
+1,Eptesicus fuscus,Mono County
+58,Eptesicus fuscus,San Bernardino County
+1,Eptesicus fuscus,"Yucaipa, San Bernardino County"
+1,Lasionycteris noctivagans,Butte County
+2,Lasionycteris noctivagans,Sutter County
+2,Lasionycteris noctivagans,Yuba County
+3,Lasiurus blossevillii,Contra Costa County
+4,Lasiurus blossevillii,San Bernardino County
+2,Lasiurus cinereus,Contra Costa County
+1,Lasiurus cinereus,"Helendale, San Bernardino County"
+3,Lasiurus cinereus,Los Angeles County
+4,Lasiurus cinereus,San Bernardino County
+11,Lasiurus xanthinus,San Bernardino County
+1,Lasiurus xanthinus,Tulare County
+1,Myotis californicus,Alameda County
+4,Myotis californicus,Amador County
+1,Myotis californicus,Butte County
+25,Myotis californicus,Contra Costa County
+2,Myotis californicus,Inyo County
+67,Myotis californicus,San Bernardino County
+1,Myotis californicus,"San Bernardino, Big Bear Lake County"
+1,Myotis californicus or Myotis ciliolabrum,Amador County
+1,Myotis californicus or Myotis ciliolabrum,El Dorado County
+1,Myotis californicus or Myotis ciliolabrum,San Bernardino County
+20,Myotis ciliolabrum,San Bernardino County
+1,Myotis evotis,Contra Costa County
+15,Myotis evotis,San Bernardino County
+1,Myotis evotis,Trinity County
+1,Myotis evotis,Tuolumne County
+3,Myotis lucifugus,San Bernardino County
+1,Myotis lucifugus or Myotis yumanensis,El Dorado County
+1,Myotis lucifugus or Myotis yumanensis,Inyo County
+1,Myotis lucifugus or Myotis yumanensis,"Riverside, Riverside County"
+1,Myotis thysanodes,Marin County
+6,Myotis thysanodes,San Bernardino County
+1,Myotis thysanodes,Sierra County
+1,Myotis volans,San Bernardino County
+1,Myotis yumanensis,Amador County
+14,Myotis yumanensis,Contra Costa County
+1,Myotis yumanensis,Los Angeles County
+54,Myotis yumanensis,San Bernardino County
+6,Myotis yumanensis/lucifugus,Marin County
+1,Myotis yumanensis/lucifugus,Mendocino County
+2,Myotis yumanensis/lucifugus,San Francisco County
+1,Myotis yumanensis/lucifugus,San Joaquin County
+1,Myotis yumanensis/lucifugus,Sonoma County
+1,Myotis yumanensis/lucifugus,Tuolumne County
+1,Parastrellus hesperus,Inyo County
+19,Parastrellus hesperus,Los Angeles County
+1,Parastrellus hesperus,Mariposa County
+1,Parastrellus hesperus,Mono County
+18,Parastrellus hesperus,San Bernardino County
+1,Parastrellus hesperus,San Francisco County
+1,Parastrellus hesperus,Tuolumne County
+1,"Parastrellus hesperus, bat missing",Contra Costa County
+1,Pipistrellus hesperus,Los Angeles County
+2,Tadarida brasiliensis,Alameda County
+1,Tadarida brasiliensis,Amador County
+1,Tadarida brasiliensis,Davis County
+39,Tadarida brasiliensis,Contra Costa County
+1,Tadarida brasiliensis,Inyo County
+20,Tadarida brasiliensis,Los Angeles County
+1,Tadarida brasiliensis,Marin County
+1,Tadarida brasiliensis,Mariposa County
+2,Tadarida brasiliensis,Mendocino County
+1,Tadarida brasiliensis,Merced County
+25,Tadarida brasiliensis,San Bernardino County
+1,Tadarida brasiliensis,San Joaquin County
+10,Tadarida brasiliensis,Sonoma County
+1,"Tadarida brasiliensis, bat missing",Contra Costa County

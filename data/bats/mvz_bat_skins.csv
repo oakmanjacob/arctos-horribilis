@@ -1,0 +1,565 @@
+specimen_count,species,county
+92,Antrozous pallidus,Alameda County
+1,Antrozous pallidus,Amador County
+1,Antrozous pallidus,Butte County
+2,Antrozous pallidus,Calaveras County
+1,Antrozous pallidus,Colusa County
+41,Antrozous pallidus,Contra Costa County
+1,Antrozous pallidus,Fresno County
+3,Antrozous pallidus,Humboldt County
+5,Antrozous pallidus,Imperial County
+11,Antrozous pallidus,Inyo County
+17,Antrozous pallidus,Kern County
+2,Antrozous pallidus,Lake County
+33,Antrozous pallidus,Los Angeles County
+4,Antrozous pallidus,Madera County
+13,Antrozous pallidus,Marin County
+1,Antrozous pallidus,Mariposa County
+2,Antrozous pallidus,Mendocino County
+20,Antrozous pallidus,Merced County
+3,Antrozous pallidus,Modoc County
+25,Antrozous pallidus,Monterey County
+110,Antrozous pallidus,Napa County
+1,Antrozous pallidus,Placer County
+1,Antrozous pallidus,Plumas County
+14,Antrozous pallidus,Riverside County
+1,Antrozous pallidus,Sacramento County
+3,Antrozous pallidus,San Benito County
+15,Antrozous pallidus,San Bernardino County
+41,Antrozous pallidus,San Diego County
+1,Antrozous pallidus,San Joaquin County
+16,Antrozous pallidus,San Luis Obispo County
+19,Antrozous pallidus,San Mateo County
+20,Antrozous pallidus,Santa Barbara County
+12,Antrozous pallidus,Santa Clara County
+2,Antrozous pallidus,Santa Cruz County
+1,Antrozous pallidus,Siskiyou County
+4,Antrozous pallidus,Sonoma County
+3,Antrozous pallidus,Tehama County
+3,Antrozous pallidus,Trinity County
+12,Antrozous pallidus,Tulare County
+1,Antrozous pallidus,Tuolumne County
+3,Antrozous pallidus,Ventura County
+2,Antrozous pallidus,Yolo County
+40,Antrozous pallidus,
+1,Choeronycteris mexicana,Orange County
+3,Choeronycteris mexicana,San Diego County
+25,Choeronycteris mexicana,
+35,Corynorhinus townsendii,Alameda County
+1,Corynorhinus townsendii,Butte County
+1,Corynorhinus townsendii,Calaveras County
+8,Corynorhinus townsendii,Colusa County
+2,Corynorhinus townsendii,Del Norte County
+3,Corynorhinus townsendii,El Dorado County
+6,Corynorhinus townsendii,Humboldt County
+3,Corynorhinus townsendii,Imperial County
+10,Corynorhinus townsendii,Inyo County
+6,Corynorhinus townsendii,Kern County
+31,Corynorhinus townsendii,Lake County
+14,Corynorhinus townsendii,Lassen County
+1,Corynorhinus townsendii,Los Angeles County
+60,Corynorhinus townsendii,Marin County
+3,Corynorhinus townsendii,Mariposa County
+9,Corynorhinus townsendii,Mendocino County
+24,Corynorhinus townsendii,Monterey County
+81,Corynorhinus townsendii,Napa County
+17,Corynorhinus townsendii,Placer County
+46,Corynorhinus townsendii,Riverside County
+5,Corynorhinus townsendii,San Benito County
+13,Corynorhinus townsendii,San Bernardino County
+52,Corynorhinus townsendii,San Diego County
+2,Corynorhinus townsendii,San Joaquin County
+6,Corynorhinus townsendii,San Luis Obispo County
+2,Corynorhinus townsendii,San Mateo County
+23,Corynorhinus townsendii,Santa Barbara County
+7,Corynorhinus townsendii,Santa Clara County
+5,Corynorhinus townsendii,Santa Cruz County
+4,Corynorhinus townsendii,Shasta County
+20,Corynorhinus townsendii,Siskiyou County
+6,Corynorhinus townsendii,Sonoma County
+1,Corynorhinus townsendii,Stanislaus County
+2,Corynorhinus townsendii,Tehama County
+1,Corynorhinus townsendii,Tulare County
+6,Corynorhinus townsendii,Tuolumne County
+5,Corynorhinus townsendii,Yolo County
+122,Corynorhinus townsendii,
+10,Eptesicus fuscus,Alameda County
+2,Eptesicus fuscus,Alpine County
+1,Eptesicus fuscus,Amador County
+14,Eptesicus fuscus,Butte County
+5,Eptesicus fuscus,Calaveras County
+5,Eptesicus fuscus,Colusa County
+12,Eptesicus fuscus,Contra Costa County
+7,Eptesicus fuscus,Del Norte County
+42,Eptesicus fuscus,El Dorado County
+12,Eptesicus fuscus,Fresno County
+4,Eptesicus fuscus,Glenn County
+32,Eptesicus fuscus,Humboldt County
+60,Eptesicus fuscus,Imperial County
+13,Eptesicus fuscus,Inyo County
+17,Eptesicus fuscus,Kern County
+23,Eptesicus fuscus,Lake County
+5,Eptesicus fuscus,Lassen County
+27,Eptesicus fuscus,Los Angeles County
+2,Eptesicus fuscus,Madera County
+4,Eptesicus fuscus,Marin County
+25,Eptesicus fuscus,Mariposa County
+5,Eptesicus fuscus,Mendocino County
+9,Eptesicus fuscus,Merced County
+1,Eptesicus fuscus,Modoc County
+2,Eptesicus fuscus,Mono County
+39,Eptesicus fuscus,Monterey County
+25,Eptesicus fuscus,Napa County
+8,Eptesicus fuscus,Nevada County
+1,Eptesicus fuscus,Orange County
+8,Eptesicus fuscus,Placer County
+2,Eptesicus fuscus,Plumas County
+40,Eptesicus fuscus,Riverside County
+14,Eptesicus fuscus,San Benito County
+92,Eptesicus fuscus,San Bernardino County
+70,Eptesicus fuscus,San Diego County
+1,Eptesicus fuscus,San Joaquin County
+33,Eptesicus fuscus,San Luis Obispo County
+5,Eptesicus fuscus,San Mateo County
+1,Eptesicus fuscus,Santa Barbara County
+2,Eptesicus fuscus,Santa Clara County
+25,Eptesicus fuscus,Santa Cruz County
+11,Eptesicus fuscus,Shasta County
+3,Eptesicus fuscus,Sierra County
+16,Eptesicus fuscus,Siskiyou County
+1,Eptesicus fuscus,Solano County
+9,Eptesicus fuscus,Sonoma County
+3,Eptesicus fuscus,Stanislaus County
+3,Eptesicus fuscus,Sutter County
+24,Eptesicus fuscus,Tehama County
+6,Eptesicus fuscus,Trinity County
+11,Eptesicus fuscus,Tulare County
+10,Eptesicus fuscus,Tuolumne County
+7,Eptesicus fuscus,Ventura County
+11,Eptesicus fuscus,Yolo County
+2,Eptesicus fuscus,Yuba County
+128,Eptesicus fuscus,
+1,Euderma maculatum,Inyo County
+1,Euderma maculatum,Kern County
+2,Euderma maculatum,Mariposa County
+1,Euderma maculatum,Riverside County
+2,Eumops perotis,Fresno County
+1,Eumops perotis,Imperial County
+16,Eumops perotis,Kern County
+35,Eumops perotis,Los Angeles County
+1,Eumops perotis,Monterey County
+4,Eumops perotis,Riverside County
+17,Eumops perotis,San Benito County
+10,Eumops perotis,San Bernardino County
+8,Eumops perotis,San Diego County
+1,Lasionycteris noctivagans,Alameda County
+1,Lasionycteris noctivagans,Alpine County
+17,Lasionycteris noctivagans,Butte County
+3,Lasionycteris noctivagans,Calaveras County
+2,Lasionycteris noctivagans,Colusa County
+1,Lasionycteris noctivagans,Contra Costa County
+3,Lasionycteris noctivagans,Del Norte County
+17,Lasionycteris noctivagans,El Dorado County
+5,Lasionycteris noctivagans,Glenn County
+5,Lasionycteris noctivagans,Humboldt County
+5,Lasionycteris noctivagans,Inyo County
+5,Lasionycteris noctivagans,Lake County
+1,Lasionycteris noctivagans,Lassen County
+1,Lasionycteris noctivagans,Marin County
+5,Lasionycteris noctivagans,Mono County
+5,Lasionycteris noctivagans,Nevada County
+2,Lasionycteris noctivagans,Plumas County
+1,Lasionycteris noctivagans,Sacramento County
+7,Lasionycteris noctivagans,Shasta County
+2,Lasionycteris noctivagans,Sierra County
+5,Lasionycteris noctivagans,Siskiyou County
+1,Lasionycteris noctivagans,Sonoma County
+1,Lasionycteris noctivagans,Sutter County
+2,Lasionycteris noctivagans,Tehama County
+9,Lasionycteris noctivagans,Trinity County
+1,Lasionycteris noctivagans,Yolo County
+19,Lasiurus cinereus,Alameda County
+1,Lasiurus cinereus,Amador County
+1,Lasiurus cinereus,Butte County
+5,Lasiurus cinereus,Contra Costa County
+1,Lasiurus cinereus,Del Norte County
+18,Lasiurus cinereus,Fresno County
+1,Lasiurus cinereus,Humboldt County
+4,Lasiurus cinereus,Imperial County
+2,Lasiurus cinereus,Inyo County
+1,Lasiurus cinereus,Kern County
+1,Lasiurus cinereus,Kings County
+2,Lasiurus cinereus,Lake County
+8,Lasiurus cinereus,Los Angeles County
+5,Lasiurus cinereus,Madera County
+3,Lasiurus cinereus,Marin County
+3,Lasiurus cinereus,Mariposa County
+9,Lasiurus cinereus,Mendocino County
+2,Lasiurus cinereus,Merced County
+6,Lasiurus cinereus,Monterey County
+1,Lasiurus cinereus,Orange County
+5,Lasiurus cinereus,Riverside County
+2,Lasiurus cinereus,San Benito County
+7,Lasiurus cinereus,San Bernardino County
+16,Lasiurus cinereus,San Diego County
+1,Lasiurus cinereus,San Francisco County
+1,Lasiurus cinereus,San Luis Obispo County
+9,Lasiurus cinereus,San Mateo County
+3,Lasiurus cinereus,Santa Clara County
+4,Lasiurus cinereus,Santa Cruz County
+1,Lasiurus cinereus,Solano County
+3,Lasiurus cinereus,Sonoma County
+1,Lasiurus cinereus,Sutter County
+2,Lasiurus cinereus,Tehama County
+5,Lasiurus cinereus,Trinity County
+5,Lasiurus cinereus,Tulare County
+3,Lasiurus cinereus,Ventura County
+5,Lasiurus cinereus,Yolo County
+3,Lasiurus cinereus,
+13,Lasiurus frantzii,Alameda County
+7,Lasiurus frantzii,Butte County
+9,Lasiurus frantzii,Contra Costa County
+1,Lasiurus frantzii,El Dorado County
+105,Lasiurus frantzii,Fresno County
+3,Lasiurus frantzii,Kern County
+1,Lasiurus frantzii,Kings County
+4,Lasiurus frantzii,Los Angeles County
+1,Lasiurus frantzii,Madera County
+6,Lasiurus frantzii,Marin County
+1,Lasiurus frantzii,Mariposa County
+1,Lasiurus frantzii,Mendocino County
+5,Lasiurus frantzii,Merced County
+3,Lasiurus frantzii,Monterey County
+4,Lasiurus frantzii,Napa County
+2,Lasiurus frantzii,Orange County
+4,Lasiurus frantzii,Placer County
+4,Lasiurus frantzii,Riverside County
+2,Lasiurus frantzii,Sacramento County
+2,Lasiurus frantzii,San Bernardino County
+5,Lasiurus frantzii,San Diego County
+1,Lasiurus frantzii,San Francisco County
+7,Lasiurus frantzii,San Joaquin County
+1,Lasiurus frantzii,San Luis Obispo County
+3,Lasiurus frantzii,San Mateo County
+3,Lasiurus frantzii,Santa Clara County
+3,Lasiurus frantzii,Santa Cruz County
+2,Lasiurus frantzii,Shasta County
+6,Lasiurus frantzii,Solano County
+11,Lasiurus frantzii,Stanislaus County
+7,Lasiurus frantzii,Sutter County
+1,Lasiurus frantzii,Tehama County
+3,Lasiurus frantzii,Tulare County
+17,Lasiurus frantzii,Yolo County
+2,Lasiurus frantzii,Yuba County
+4,Lasiurus frantzii,
+26,Lasiurus xanthinus,Imperial County
+2,Lasiurus xanthinus,Los Angeles County
+41,Lasiurus xanthinus,Riverside County
+24,Lasiurus xanthinus,San Bernardino County
+11,Lasiurus xanthinus,San Diego County
+70,Lasiurus xanthinus,
+50,Macrotus californicus,Imperial County
+1,Macrotus californicus,Los Angeles County
+113,Macrotus californicus,Riverside County
+2,Macrotus californicus,San Bernardino County
+41,Macrotus californicus,San Diego County
+63,Macrotus californicus,
+25,Myotis californicus,Alameda County
+9,Myotis californicus,Amador County
+13,Myotis californicus,Butte County
+2,Myotis californicus,Calaveras County
+7,Myotis californicus,Colusa County
+39,Myotis californicus,Contra Costa County
+37,Myotis californicus,El Dorado County
+5,Myotis californicus,Fresno County
+2,Myotis californicus,Glenn County
+14,Myotis californicus,Humboldt County
+4,Myotis californicus,Imperial County
+8,Myotis californicus,Inyo County
+20,Myotis californicus,Kern County
+20,Myotis californicus,Lake County
+2,Myotis californicus,Lassen County
+8,Myotis californicus,Los Angeles County
+4,Myotis californicus,Madera County
+29,Myotis californicus,Marin County
+47,Myotis californicus,Mariposa County
+31,Myotis californicus,Mendocino County
+105,Myotis californicus,Monterey County
+16,Myotis californicus,Napa County
+2,Myotis californicus,Nevada County
+11,Myotis californicus,Placer County
+1,Myotis californicus,Plumas County
+14,Myotis californicus,Riverside County
+2,Myotis californicus,Sacramento County
+20,Myotis californicus,San Benito County
+231,Myotis californicus,San Bernardino County
+76,Myotis californicus,San Diego County
+4,Myotis californicus,San Francisco County
+31,Myotis californicus,San Luis Obispo County
+12,Myotis californicus,San Mateo County
+22,Myotis californicus,Santa Barbara County
+9,Myotis californicus,Santa Clara County
+39,Myotis californicus,Santa Cruz County
+7,Myotis californicus,Shasta County
+1,Myotis californicus,Siskiyou County
+4,Myotis californicus,Solano County
+14,Myotis californicus,Sonoma County
+3,Myotis californicus,Sutter County
+10,Myotis californicus,Tehama County
+10,Myotis californicus,Trinity County
+10,Myotis californicus,Tulare County
+15,Myotis californicus,Tuolumne County
+5,Myotis californicus,Ventura County
+9,Myotis californicus,Yolo County
+1,Myotis californicus,Yuba County
+89,Myotis californicus,
+2,Myotis ciliolabrum,Butte County
+1,Myotis ciliolabrum,El Dorado County
+2,Myotis ciliolabrum,Fresno County
+1,Myotis ciliolabrum,Imperial County
+6,Myotis ciliolabrum,Inyo County
+13,Myotis ciliolabrum,Kern County
+12,Myotis ciliolabrum,Lassen County
+2,Myotis ciliolabrum,Los Angeles County
+1,Myotis ciliolabrum,Mariposa County
+4,Myotis ciliolabrum,Mono County
+1,Myotis ciliolabrum,Monterey County
+2,Myotis ciliolabrum,Nevada County
+1,Myotis ciliolabrum,Orange County
+2,Myotis ciliolabrum,Placer County
+4,Myotis ciliolabrum,Plumas County
+9,Myotis ciliolabrum,Riverside County
+3,Myotis ciliolabrum,San Benito County
+68,Myotis ciliolabrum,San Bernardino County
+16,Myotis ciliolabrum,San Diego County
+33,Myotis ciliolabrum,San Luis Obispo County
+3,Myotis ciliolabrum,Shasta County
+1,Myotis ciliolabrum,Siskiyou County
+78,Myotis ciliolabrum,
+1,Myotis evotis,Alameda County
+3,Myotis evotis,Calaveras County
+1,Myotis evotis,Colusa County
+4,Myotis evotis,Contra Costa County
+4,Myotis evotis,El Dorado County
+8,Myotis evotis,Humboldt County
+1,Myotis evotis,Inyo County
+3,Myotis evotis,Lake County
+4,Myotis evotis,Lassen County
+3,Myotis evotis,Los Angeles County
+1,Myotis evotis,Mariposa County
+5,Myotis evotis,Mendocino County
+3,Myotis evotis,Modoc County
+3,Myotis evotis,Mono County
+12,Myotis evotis,Monterey County
+14,Myotis evotis,Napa County
+3,Myotis evotis,Nevada County
+1,Myotis evotis,Placer County
+2,Myotis evotis,Plumas County
+1,Myotis evotis,Riverside County
+1,Myotis evotis,San Benito County
+24,Myotis evotis,San Bernardino County
+9,Myotis evotis,San Diego County
+1,Myotis evotis,San Francisco County
+2,Myotis evotis,San Luis Obispo County
+2,Myotis evotis,San Mateo County
+1,Myotis evotis,Santa Barbara County
+2,Myotis evotis,Santa Clara County
+13,Myotis evotis,Santa Cruz County
+3,Myotis evotis,Shasta County
+3,Myotis evotis,Sierra County
+3,Myotis evotis,Siskiyou County
+2,Myotis evotis,Sonoma County
+4,Myotis evotis,Tehama County
+6,Myotis evotis,Trinity County
+1,Myotis evotis,Tulare County
+1,Myotis evotis,Tuolumne County
+2,Myotis evotis,Ventura County
+6,Myotis evotis,Yolo County
+8,Myotis evotis,
+1,Myotis lucifugus,Alpine County
+4,Myotis lucifugus,Butte County
+6,Myotis lucifugus,El Dorado County
+1,Myotis lucifugus,Glenn County
+15,Myotis lucifugus,Humboldt County
+6,Myotis lucifugus,Imperial County
+9,Myotis lucifugus,Inyo County
+27,Myotis lucifugus,Lake County
+5,Myotis lucifugus,Lassen County
+4,Myotis lucifugus,Mariposa County
+23,Myotis lucifugus,Modoc County
+8,Myotis lucifugus,Mono County
+16,Myotis lucifugus,Monterey County
+33,Myotis lucifugus,Nevada County
+30,Myotis lucifugus,Placer County
+4,Myotis lucifugus,Plumas County
+4,Myotis lucifugus,Riverside County
+16,Myotis lucifugus,San Bernardino County
+24,Myotis lucifugus,Shasta County
+6,Myotis lucifugus,Siskiyou County
+1,Myotis lucifugus,Sonoma County
+1,Myotis lucifugus,Tehama County
+1,Myotis thysanodes,Alameda County
+1,Myotis thysanodes,Calaveras County
+5,Myotis thysanodes,El Dorado County
+1,Myotis thysanodes,Fresno County
+4,Myotis thysanodes,Inyo County
+31,Myotis thysanodes,Kern County
+12,Myotis thysanodes,Lake County
+1,Myotis thysanodes,Lassen County
+34,Myotis thysanodes,Marin County
+4,Myotis thysanodes,Mariposa County
+7,Myotis thysanodes,Monterey County
+53,Myotis thysanodes,Napa County
+4,Myotis thysanodes,Placer County
+2,Myotis thysanodes,Plumas County
+1,Myotis thysanodes,Riverside County
+2,Myotis thysanodes,San Benito County
+11,Myotis thysanodes,San Bernardino County
+10,Myotis thysanodes,San Diego County
+4,Myotis thysanodes,San Mateo County
+6,Myotis thysanodes,Santa Cruz County
+1,Myotis thysanodes,Shasta County
+4,Myotis thysanodes,Sonoma County
+21,Myotis thysanodes,Tuolumne County
+39,Myotis thysanodes,
+2,Myotis volans,Butte County
+2,Myotis volans,El Dorado County
+1,Myotis volans,Fresno County
+2,Myotis volans,Humboldt County
+17,Myotis volans,Inyo County
+110,Myotis volans,Kern County
+4,Myotis volans,Lake County
+6,Myotis volans,Lassen County
+4,Myotis volans,Los Angeles County
+8,Myotis volans,Mariposa County
+3,Myotis volans,Mendocino County
+30,Myotis volans,Mono County
+21,Myotis volans,Monterey County
+2,Myotis volans,Nevada County
+1,Myotis volans,Placer County
+2,Myotis volans,Plumas County
+5,Myotis volans,Riverside County
+13,Myotis volans,San Bernardino County
+3,Myotis volans,San Diego County
+1,Myotis volans,San Mateo County
+1,Myotis volans,Santa Clara County
+5,Myotis volans,Shasta County
+2,Myotis volans,Siskiyou County
+7,Myotis volans,Sonoma County
+1,Myotis volans,Trinity County
+1,Myotis volans,Tulare County
+8,Myotis volans,
+65,Myotis yumanensis,Alameda County
+1,Myotis yumanensis,Amador County
+52,Myotis yumanensis,Butte County
+2,Myotis yumanensis,Calaveras County
+26,Myotis yumanensis,Colusa County
+1,Myotis yumanensis,Contra Costa County
+8,Myotis yumanensis,Del Norte County
+13,Myotis yumanensis,El Dorado County
+37,Myotis yumanensis,Fresno County
+12,Myotis yumanensis,Glenn County
+14,Myotis yumanensis,Humboldt County
+20,Myotis yumanensis,Imperial County
+4,Myotis yumanensis,Inyo County
+113,Myotis yumanensis,Kern County
+126,Myotis yumanensis,Lake County
+70,Myotis yumanensis,Lassen County
+19,Myotis yumanensis,Los Angeles County
+1,Myotis yumanensis,Madera County
+74,Myotis yumanensis,Marin County
+1,Myotis yumanensis,Mariposa County
+6,Myotis yumanensis,Mendocino County
+2,Myotis yumanensis,Merced County
+4,Myotis yumanensis,Modoc County
+29,Myotis yumanensis,Monterey County
+53,Myotis yumanensis,Napa County
+17,Myotis yumanensis,Nevada County
+127,Myotis yumanensis,Placer County
+1,Myotis yumanensis,Plumas County
+78,Myotis yumanensis,Riverside County
+1,Myotis yumanensis,Sacramento County
+79,Myotis yumanensis,San Bernardino County
+65,Myotis yumanensis,San Diego County
+3,Myotis yumanensis,San Francisco County
+2,Myotis yumanensis,San Joaquin County
+2,Myotis yumanensis,San Luis Obispo County
+6,Myotis yumanensis,San Mateo County
+2,Myotis yumanensis,Santa Clara County
+58,Myotis yumanensis,Santa Cruz County
+7,Myotis yumanensis,Shasta County
+2,Myotis yumanensis,Siskiyou County
+2,Myotis yumanensis,Solano County
+10,Myotis yumanensis,Sonoma County
+2,Myotis yumanensis,Stanislaus County
+6,Myotis yumanensis,Sutter County
+41,Myotis yumanensis,Tehama County
+3,Myotis yumanensis,Tulare County
+24,Myotis yumanensis,Tuolumne County
+4,Myotis yumanensis,Ventura County
+12,Myotis yumanensis,Yolo County
+76,Myotis yumanensis,
+1,Nyctinomops femorosaccus,Imperial County
+1,Nyctinomops femorosaccus,Los Angeles County
+2,Nyctinomops femorosaccus,Riverside County
+2,Nyctinomops femorosaccus,San Bernardino County
+5,Nyctinomops femorosaccus,San Diego County
+20,Nyctinomops femorosaccus,
+1,Nyctinomops macrotis,Imperial County
+1,Nyctinomops macrotis,Riverside County
+1,Nyctinomops macrotis,San Diego County
+1,Nyctinomops macrotis,Santa Barbara County
+3,Parastrellus hesperus,Imperial County
+2,Parastrellus hesperus,Riverside County
+7,Parastrellus hesperus,San Bernardino County
+2,Parastrellus hesperus,San Diego County
+1,Parastrellus hesperus,Shasta County
+83,Tadarida brasiliensis,Alameda County
+3,Tadarida brasiliensis,Amador County
+32,Tadarida brasiliensis,Butte County
+11,Tadarida brasiliensis,Calaveras County
+5,Tadarida brasiliensis,Colusa County
+35,Tadarida brasiliensis,Contra Costa County
+16,Tadarida brasiliensis,El Dorado County
+35,Tadarida brasiliensis,Fresno County
+21,Tadarida brasiliensis,Glenn County
+5,Tadarida brasiliensis,Humboldt County
+7,Tadarida brasiliensis,Imperial County
+7,Tadarida brasiliensis,Inyo County
+48,Tadarida brasiliensis,Kern County
+9,Tadarida brasiliensis,Lake County
+34,Tadarida brasiliensis,Los Angeles County
+1,Tadarida brasiliensis,Madera County
+30,Tadarida brasiliensis,Marin County
+5,Tadarida brasiliensis,Mariposa County
+1,Tadarida brasiliensis,Mendocino County
+40,Tadarida brasiliensis,Merced County
+2,Tadarida brasiliensis,Mono County
+18,Tadarida brasiliensis,Monterey County
+21,Tadarida brasiliensis,Napa County
+1,Tadarida brasiliensis,Nevada County
+15,Tadarida brasiliensis,Placer County
+32,Tadarida brasiliensis,Riverside County
+2,Tadarida brasiliensis,Sacramento County
+4,Tadarida brasiliensis,San Benito County
+24,Tadarida brasiliensis,San Bernardino County
+45,Tadarida brasiliensis,San Diego County
+13,Tadarida brasiliensis,San Francisco County
+38,Tadarida brasiliensis,San Joaquin County
+20,Tadarida brasiliensis,San Luis Obispo County
+10,Tadarida brasiliensis,San Mateo County
+1,Tadarida brasiliensis,Santa Barbara County
+20,Tadarida brasiliensis,Santa Clara County
+2,Tadarida brasiliensis,Santa Cruz County
+2,Tadarida brasiliensis,Shasta County
+5,Tadarida brasiliensis,Solano County
+4,Tadarida brasiliensis,Sonoma County
+6,Tadarida brasiliensis,Stanislaus County
+15,Tadarida brasiliensis,Sutter County
+18,Tadarida brasiliensis,Tehama County
+4,Tadarida brasiliensis,Tulare County
+13,Tadarida brasiliensis,Tuolumne County
+9,Tadarida brasiliensis,Ventura County
+61,Tadarida brasiliensis,Yolo County
+10,Tadarida brasiliensis,Yuba County
+178,Tadarida brasiliensis,

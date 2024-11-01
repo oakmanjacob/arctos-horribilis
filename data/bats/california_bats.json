@@ -1,0 +1,140 @@
+[
+    {
+        "common_name": "Arizona Myotis",
+        "genus": "Myotis",
+        "species": "occultus",
+        "epithet": "Myotis occultus"
+    },
+    {
+        "common_name": "Big Brown Bat",
+        "genus": "Eptesicus",
+        "species": "fuscus",
+        "epithet": "Eptesicus fuscus"
+    },
+    {
+        "common_name": "Big Free-Tailed Bat",
+        "genus": "Nyctinomops",
+        "species": "macrotis",
+        "epithet": "Nyctinomops macrotis"
+    },
+    {
+        "common_name": "California Leaf-Nosed Bat",
+        "genus": "Macrotus",
+        "species": "californicus",
+        "epithet": "Macrotus californicus"
+    },
+    {
+        "common_name": "California Myotis",
+        "genus": "Myotis",
+        "species": "californicus",
+        "epithet": "Myotis californicus"
+    },
+    {
+        "common_name": "Canyon Bat",
+        "genus": "Parastrellus",
+        "species": "hesperus",
+        "epithet": "Parastrellus hesperus"
+    },
+    {
+        "common_name": "Fringed Myotis",
+        "genus": "Myotis",
+        "species": "thysanodes",
+        "epithet": "Myotis thysanodes"
+    },
+    {
+        "common_name": "Western Mastiff Bat",
+        "genus": "Eumops",
+        "species": "perotis",
+        "epithet": "Eumops perotis"
+    },
+    {
+        "common_name": "Little Brown Myotis",
+        "genus": "Myotis",
+        "species": "lucifugus",
+        "epithet": "Myotis lucifugus"
+    },
+    {
+        "common_name": "Long-Eared Myotis",
+        "genus": "Myotis",
+        "species": "evotis",
+        "epithet": "Myotis evotis"
+    },
+    {
+        "common_name": "Long-Legged Myotis",
+        "genus": "Myotis",
+        "species": "volans",
+        "epithet": "Myotis volans"
+    },
+    {
+        "common_name": "Mexican Free-Tailed Bat",
+        "genus": "Tadarida",
+        "species": "brasiliensis",
+        "epithet": "Tadarida brasiliensis"
+    },
+    {
+        "common_name": "Mexican Long-Tongued Bat",
+        "genus": "Choeronycteris",
+        "species": "mexicana",
+        "epithet": "Choeronycteris mexicana"
+    },
+    {
+        "common_name": "Pocketed Free-Tailed Bat",
+        "genus": "Nyctinomops",
+        "species": "femorosaccus",
+        "epithet": "Nyctinomops femorosaccus"
+    },
+    {
+        "common_name": "Silver-Haired Bat",
+        "genus": "Lasionycteris",
+        "species": "noctivagans",
+        "epithet": "Lasionycteris noctivagans"
+    },
+    {
+        "common_name": "Spotted Bat",
+        "genus": "Euderma",
+        "species": "maculatum",
+        "epithet": "Euderma maculatum"
+    },
+    {
+        "common_name": "Townsend's Big-Eared Bat",
+        "genus": "Corynorhinus",
+        "species": "townsendii",
+        "epithet": "Corynorhinus townsendii"
+    },
+    {
+        "common_name": "Western Yellow Bat",
+        "genus": "Lasiurus",
+        "species": "xanthinus",
+        "epithet": "Lasiurus xanthinus"
+    },
+    {
+        "common_name": "Yuma Myotis",
+        "genus": "Myotis",
+        "species": "yumanensis",
+        "epithet": "Myotis yumanensis"
+    },
+    {
+        "common_name": "Pallid bat",
+        "genus": "Antrozous",
+        "species": "pallidus",
+        "epithet": "Antrozous pallidus"
+    },
+    {
+        "common_name": "Southern Red Bat",
+        "genus": "Lasiurus",
+        "species": "blossevillii",
+        "epithet": "Lasiurus blossevillii"
+    },
+    {
+        "common_name": "Hoary Bat",
+        "genus": "Lasiurus",
+        "species": "cinereus",
+        "epithet": "Lasiurus cinereus"
+    },
+    {
+        "common_name": "Western Small-Footed Bat",
+        "genus": "Myotis",
+        "species": "ciliolabrum",
+        "epithet": "Myotis ciliolabrum"
+    }
+]
