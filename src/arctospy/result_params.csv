@@ -1,0 +1,119 @@
+"index","display","obj_name","query_cost","category","description","default_order"
+"1","GUID (DarwinCore Triplet)","guid",1,"core","DarwinCore Triplet; primary catalog record identifier",10
+"2","Catalog Number Integer","catalognumberint",1,"record","Integer component of catalog number.",20
+"3","Identifiers","identifiers",1,"record","All non relationship-forming identifiers and associated metadata.",29
+"4","Simple Identifiers","othercatalognumbers",1,"record","Identifier kind=value concatenation",30
+"5","Accession","accn_number",1,"record","Accession number",40
+"6","Media","media",1,"record","Media include images, digital audio, and various kinds of documentation.  More generally, media are digital files related to specimens, publications, and agents. ",50
+"7","Identified As","scientific_name",1,"core","Identification (""scientific name"") as determined by collection. Depending on the determination, most often genus plus species; often genus, species plus subspecies, but often a taxon less precise than genus.",60
+"8","ID Determiner","identified_by",1,"record","The agent (generally a person) who made a taxonomic determination, that is, identified a specimen.",70
+"9","<i>sensu</i>","id_sensu",1,"record","A publication which defines the parameters used to make the identification. ""This specimen is Taxon X in the sense of Publication Y.""",80
+"10","determination date","id_date",1,"record","The date on which the person making the taxonomic determination applied it to the specimen.",90
+"11","scientific name with author","sci_name_with_auth",1,"record","Taxonomic name followed by the name(s) of the person who originally published the name. Various specific conventions are dictated by nomenclatural commissions.<br>",100
+"12","Identifications","id_history",1,"curatorial","All Identifications including metadata",110
+"13","ID Remarks","identification_remarks",1,"record","Any further description of a taxonomic determination, its basis, nature or circumstances.",120
+"14","Determined Date","made_date",1,"record","Date on which the determination was made. Format is a single day.",140
+"15","keep/remove row","remove_row",50,"curatorial","Keep/Remove rows; Turn this on to keep/remove rows from results. USAGE: Click the button on any number of rows, then requery or select Tools-->Keep/Remove Selected Rows.",145
+"16","Kingdom","kingdom",1,"record","Kingdom as provided in collection's preferred Source(s).",150
+"17","Phylum","phylum",1,"classification","Phylum as provided in collection's preferred Source(s).",160
+"18","Class","phylclass",1,"classification","Class as provided in collection's preferred Source(s).",170
+"19","Superorder","superorder",1,"classification","Taxonomic SuperOrder as asserted by the collection's preferred taxonomy.",179
+"20","Order","phylorder",1,"classification","Order as provided in collection's preferred Source(s).",180
+"21","Suborder","suborder",1,"classification","Taxonomic Order as asserted by the collection's preferred taxonomy.",185
+"22","Superfamily","superfamily",1,"classification","Superfamily as provided in collection's preferred Source(s).",190
+"23","Family","family",1,"classification","Family as provided in collection's preferred Source(s).",200
+"24","Subfamily","subfamily",1,"classification","Subfamily as provided in collection's preferred Source(s).",210
+"25","Tribe","tribe",1,"classification","Tribe as provided in collection's preferred Source(s).",220
+"26","Subtribe","subtribe",1,"classification","Subtribe as provided in collection's preferred Source(s).",230
+"27","Genus","genus",1,"classification","Genus as provided in collection's preferred Source(s).",240
+"28","Species","species",1,"classification","Species (binomial) as provided in collection's preferred Source(s).",250
+"29","Subspecies","subspecies",1,"classification","Subspecies (as trinomial) or infraspecific term (as quadrinomial) as asserted by the collection's preferred taxonomy.",260
+"30","citations","citations",1,"curatorial","Citations are links between cataloged items and publications. Citations indicate that a cataloged item was referred to (cited) by the authors of a publication.",270
+"31","related items","relatedcatalogeditems",1,"record","Two cataloged items (usually biological individuals) may be associated with each other by kinship or some trophic relationship.",280
+"32","collectors","collectors",1,"record","collector role ""collector""",290
+"33","preparators","preparators",1,"record","collector role ""preparator""",300
+"34","Creator","creator",1,"record","collector role ""creator""",310
+"35","Subject","subject",1,"record","collector role ""subject""",312
+"36","Copyright Holder","copyright_holder",1,"record","collector role ""copyright holder""",314
+"37","Record/Event Type","specimen_event_type",1,"locality","Type of event",320
+"38","event agent","event_assigned_by_agent",1,"locality","Agent asserting the relationship between the specimen and the place-time data.",330
+"39","Collecting Source","collecting_source",1,"record","Event source",350
+"40","Record/Event Remark","specimen_event_remark",1,"locality","Catalog record event remark",360
+"41","Asserted Continent/Ocean","continent_ocean",1,"locality","Continent or ocean as asserted",370
+"42","Asserted Sea","sea",1,"locality","Sea as asserted",380
+"43","Asserted Country","country",1,"core","Country as asserted by the collection",390
+"44","Asserted State/Province","state_prov",1,"core","State or province as asserted",400
+"45","Asserted County","county",1,"locality","County as asserted by the collection",430
+"46","Minimum Elevation (m)","min_elev_in_m",1,"locality","Minimum elevation for a locality converted to meters",460
+"47","Maximum Elevation (m)","max_elev_in_m",1,"locality","Maximum elevation for a locality converted to meters",470
+"48","Minimum Elevation","minimum_elevation",1,"locality","Minimum elevation of a locality.",480
+"49","Maximum Elevation","maximum_elevation",1,"locality","Maximum elevation of a locality.",490
+"50","Elevation Units","orig_elev_units",1,"locality","The units of measurement used in the original reporting of an elevation.",500
+"51","Specific Locality","spec_locality",1,"core","Locality as asserted",530
+"52","Locality Remark","locality_remarks",1,"locality","Locality remark",540
+"53","Verbatim Locality","verbatim_locality",1,"locality","Locality as provided",550
+"54","Habitat","habitat",1,"record","Event habitat",560
+"55","Locality Name","locality_name",1,"locality","Assigned unique persistent locality identifier.",570
+"56","Collecting Method","collecting_method",1,"record","Event method",580
+"57","Verbatim Date","verbatim_date",1,"core","Date as provided",590
+"58","Began Date","began_date",1,"locality","Earliest date/time at which an event occurred.",600
+"59","Ended Date","ended_date",1,"locality","Latest date/time at which an event occurred",610
+"60","year collected","year_collected",1,"locality","The year in which the specimen was collected. ",640
+"61","month collected","month_collected",1,"locality","The month in which the specimen was collected.",641
+"62","day collected","day_collected",1,"locality","The day in which the specimen was collected.",642
+"63","Part Names","parts",1,"record","Part names",650
+"64","JSON Parts","partdetail",1,"record","All part fields formatted as JSON",660
+"65","Catalog Record Remark","remark",1,"record","Catalog record remark",680
+"66","Collecting Event ID","collecting_event_id",1,"curatorial","Event identifier issued by Arctos",690
+"67","verbatim coordinates","verbatim_coordinates",1,"locality","The geographic coordinates in the format in which they were reported by the collector. (Often absent.)",700
+"68","Coordinate Type","orig_lat_long_units",1,"locality","The units used in the original report of geographic coordinates. For example, degrees/minutes/seconds, degrees/minutes/decimal-minutes, decimal degrees, or the UTM system.",710
+"69","Decimal Latitude","dec_lat",1,"core","Geographic latitude expressed as degrees with decimal fractions of degrees.",720
+"70","Decimal Longitude","dec_long",1,"core","Geographic longitude expressed as degrees with decimal fractions of degrees.",730
+"71","Coordinate Error (m)","coordinateuncertaintyinmeters",1,"core",NA,740
+"72","Verification Status","verificationstatus",1,"record","Verification status of locality information",750
+"73","datum","datum",1,"locality","Asserted datum for the coordinates assigned to a locality",760
+"74","georeference protocol","georeference_protocol",1,"locality","Protocol used to obtain the values for the coordinates and the measure of precision.",770
+"75","georeference source","georeference_source",1,"locality","The source of the coordinate information. Often the name of a map or gazetteer.",780
+"76","individualcount","individualcount",1,"record","Number of individuals in the cataloged item",790
+"77","Formatted ID","formatted_scientific_name",1,"record","Scientific name including code-specific data and markup",800
+"78","Collecting Event Remarks","coll_event_remarks",1,"locality","Collecting Event Remarks documents nonstandard information concerning a collecting event.",810
+"79","associated species","associated_species",1,"locality","Other species noted in association with the collected specimens. Used in botanical collections.",820
+"80","JSON Locality","json_locality",1,"locality","Locality stack in JSON",850
+"81","member","member",1,"locality","Locality attribute member",851
+"82","formation","formation",1,"locality","Locality attribute formation",851
+"83","event_count","event_count",1,"locality","Number of Events, of any type and including restricted access, attached to the record.",852
+"84","Locality Count","locality_count",1,"locality","Number of Localities, of any type and including restricted access, attached to the record.",853
+"85","Full Taxon Name","full_taxon_name",1,"record","Any term in a taxonomic hierarchy.",860
+"86","Entered By","entered_by",1,"curatorial","Operator who entered the record",870
+"87","Related Record Summary","related_record_summary",1,"record","summary data from related records",880
+"88","Attribute Detail","attributedetail",1,"curatorial","All attribute data",890
+"89","Last Part Location","lastpartlocation",1,"curatorial","Special handler for part attribute ""location.""",900
+"90","age","age",1,"trait","General description of the age. See also age class and numeric age.",920
+"91","Culture of Origin","culture_of_origin",1,"attribute","Culture of origin attribute",1220
+"92","Culture of Use","culture_of_use",1,"attribute","Culture of use attribute",1230
+"93","ear from notch","ear_from_notch",1,"trait","Length of the ear from the notch to the tip.",1300
+"94","hind foot with claw","hind_foot_with_claw",1,"trait","Length of the hind foot from the back of the ankle to the end of the longest claw. A numeric value plus units.",1530
+"95","Materials","materials",1,"attribute","Materials attribute",1680
+"96","sex","sex",1,"trait","Sex of the organism.",1970
+"97","tail length","tail_length",1,"trait","length of tail",2110
+"98","total length","total_length",1,"trait","Total length of the specimen. Fish&#x3a;Total length &#x28;TL&#x29; is the length of a fish measured from the tip of the&#xd;&#xa;snout to tip of the longest lobe of caudal fin. Measurement done with&#xd;&#xa;caudal fin lobes compressed and measured at midline.",2170
+"99","weight","weight",1,"trait","Total body or object weight",2280
+"100","AF","AF",1,"identifiers","Alaska Frozen Tissue Collection, University of Alaska Museum of the North, Fairbanks, Alaska.",2450
+"101","KT","KT",1,"identifiers","Kansas State Biorepository, Kansas Tissue Number.",2451
+"102","collector number","collector_number",1,"identifiers","A value that refers to a person's field catalog. For this number to be applied to a specimen, the person has to be the first collector of a specimen.",3530
+"103","GenBank","GenBank",1,"identifiers","GenBank DNA-sequence accession. The Nucleotide database is a collection of sequences from several sources, including GenBank, RefSeq, TPA and PDB. Genome, gene and transcript sequence data provide the foundation for biomedical research and discovery.",4020
+"104","NK","NK",1,"identifiers","""New Mexico Karyotype Number,"" a frozen tissue collection number for the Museum of Southwestern Biology.",5550
+"105","Organism ID","Organism_ID",1,"identifiers","Identifier representing a DWC:Organism or individual, generally one comprised of multiple catalog records (which represent DWC:Occurrences).",5800
+"106","preparator number","preparator_number",1,"identifiers","A value that refers to a record in the catalog of the person listed as the first preparator of a specimen.",6030
+"107","examined for","examined_for",1,"attribute","A systematic examination for the attribute value was made.",6040
+"108","not examined for","not_examined_for",1,"attribute","The record was not examined for the given value.",6050
+"109","detected","detected",1,"attribute","The attribute value was detected.",6060
+"110","not detected","not_detected",1,"attribute","The attribute value was not detected.",6060
+"111","reproductive_data","reproductive_data",1,"attribute","Record attribute value(s).",10000
+"112","DOI","doi",1,"identifiers","DOI associated with the catalog record",11000
+"113","Collection Preferred Identifiers","collection_preferred_identifiers",1,"identifiers","Identifiers selected by the collection for special prominence",12000
+"114","public_accn_id","public_accn_id",1,"identifiers","Part of the path to any public accession information.",13000
+"115","rights","rights",1,"curatorial","Terms and licenses.",14000
+"116","citation data","citation_data",1,"curatorial","citations",15000
+"117","media_tags","media_tags",1,"curatorial","TAGs",16000
+"118","collector_agents","collector_agents",1,"curatorial","Collector-agents (not limited to role 'collector')",17000
