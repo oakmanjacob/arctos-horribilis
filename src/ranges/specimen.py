@@ -66,12 +66,14 @@ class Specimen:
     scientific_name: str
     collectors: str
     collected_date: str
+    distance_unit: DistanceUnit
+    weight_unit: WeightUnit
 
     common_data: CommonData
     reproductive_data: ReproductiveData
 
 
-    def __init__(self, guid, scientific_name, collectors, collected_date, common_data, reproductive_data):
+    def __init__(self, guid, scientific_name, collectors, collected_date, common_data, reproductive_data, distance_unit, weight_unit):
         self.guid = guid
         self.scientific_name = scientific_name
         self.collectors = collectors
@@ -79,6 +81,8 @@ class Specimen:
 
         self.common_data = common_data
         self.reproductive_data = reproductive_data
+        self.distance_unit = distance_unit
+        self.weight_unit = weight_unit
     
     def from_raw_record(raw_record):
         record = SheetParser.extract_record(raw_record)
@@ -113,7 +117,9 @@ class Specimen:
                 crown_rump_length = SheetParser.parse_numerical_attribute(record["crown_rump_length"], distance_unit, DistanceUnit.MILLIMETERS),
                 scars = record["scars"],
                 repro_comments = record["repro_comments"]
-            )
+            ),
+            distance_unit=distance_unit,
+            weight_unit=weight_unit,
         )
     
     def to_dict(self):
@@ -137,6 +143,8 @@ class Specimen:
             "crown_rump_length": self.reproductive_data.crown_rump_length[0],
             "scars": self.reproductive_data.scars,
             "repro_comments": self.reproductive_data.repro_comments,
+            "distance_unit": (self.distance_unit or DistanceUnit.MILLIMETERS).value,
+            "weight_unit": (self.weight_unit or WeightUnit.GRAMS).value,
         }
 
     def export_attributes(self) -> list:
@@ -159,7 +167,7 @@ class Specimen:
                     "attribute_units": value[1].value,
                     "attribute_date": self.collected_date,
                     "attribute_remark": value[2],
-                    "attribute_determiner": self.collectors.split(",")[0],
+                    "attribute_determiner": self.collectors.split(",")[0] if self.collectors is not None else None,
                 })
 
             elif value[2] is not None:
@@ -174,7 +182,7 @@ class Specimen:
                 "attribute_type": "unformatted measurements",
                 "attribute_value": ", ".join(unparsed_values),
                 "attribute_date": self.collected_date,
-                "attribute_determiner": self.collectors.split(",")[0],
+                "attribute_determiner": self.collectors.split(",")[0] if self.collectors is not None else None,
             })
 
         if self.reproductive_data.repro_comments is not None:
@@ -183,7 +191,7 @@ class Specimen:
                 "attribute_type": "reproductive data",
                 "attribute_value": self.reproductive_data.repro_comments,
                 "attribute_date": self.collected_date,
-                "attribute_determiner": self.collectors.split(",")[0],
+                "attribute_determiner": self.collectors.split(",")[0] if self.collectors is not None else None,
             })
 
         return attributes, unitless_attributes
