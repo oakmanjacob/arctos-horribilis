@@ -23,6 +23,7 @@ hitting the API many times for even relatviely limited queries.
 
 Why they did this, I can't say. People just liked it better that way.
 """
+
 import os
 import operator
 import requests
@@ -39,7 +40,7 @@ BATCH_SIZE = 100  # This batch size is based on the arctos api
 THREAD_COUNT = 4
 
 
-@on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
+@on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
 def get_query_parameters():
@@ -55,7 +56,7 @@ def get_query_parameters():
     return response.json()["QUERY_PARAMS"]
 
 
-@on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
+@on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
 def get_result_parameters():
@@ -97,7 +98,7 @@ def get_records(query: dict, columns: list = None, limit: int = None):
     return reduce(operator.concat, [response["DATA"] for response in responses])
 
 
-@on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
+@on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
 def call_query_api(query: dict, columns: list = None, limit: int = None):
@@ -119,7 +120,7 @@ def call_query_api(query: dict, columns: list = None, limit: int = None):
     return requests.get(API_URL, params).json()
 
 
-@on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
+@on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
 def call_table_api(table: str, start: int = 0):
