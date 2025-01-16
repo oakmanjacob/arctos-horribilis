@@ -9,7 +9,7 @@ I have added basic rate limiting so as to avoid stressing out Arctos and, by ext
 Michelle. However, don't take this as a license to go wild. I'm sure there are ways to be a bother
 despite the guard rails I've put in place.
 
-We rate limit each type of API call to 1 request every 5 seconds.
+We rate limit each type of API call to 1 request every 10 seconds.
 
 Client Functions
     * get_query_parameters() - Returns the columns which can be filtered on in get_records
@@ -41,7 +41,7 @@ THREAD_COUNT = 4
 
 @on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
 @sleep_and_retry
-@limits(calls=1, period=5)
+@limits(calls=1, period=10)
 def get_query_parameters():
     """Calls the Arctos API to get the columns which can be filtered on in get_records."""
 
@@ -57,7 +57,7 @@ def get_query_parameters():
 
 @on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
 @sleep_and_retry
-@limits(calls=1, period=5)
+@limits(calls=1, period=10)
 def get_result_parameters():
     """Calls the Arctos API to get the columns which can be included in a get_records result."""
 
@@ -99,7 +99,7 @@ def get_records(query: dict, columns: list = None, limit: int = None):
 
 @on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
 @sleep_and_retry
-@limits(calls=1, period=5)
+@limits(calls=1, period=10)
 def call_query_api(query: dict, columns: list = None, limit: int = None):
     """Internal function for making an initial query to Arctos and getting the cached table name."""
 
@@ -121,7 +121,7 @@ def call_query_api(query: dict, columns: list = None, limit: int = None):
 
 @on_exception(expo, requests.Exceptions.Timeout, max_tries=3)
 @sleep_and_retry
-@limits(calls=1, period=5)
+@limits(calls=1, period=10)
 def call_table_api(table: str, start: int = 0):
     """Internal function for pulling records from a cached query result table."""
 
