@@ -9,11 +9,13 @@ This project is meant to provide data visualizations and analysis for museum dat
 ### Species Report - `species_report.ipynb`
 Species level overview showing collecting history, locality information and attributes for an individual species or subspecies.
 
-### Museum Report - `museum_report.ipynb`
-Museum level overview displaying broad information regarding a specific collection.
+### Identify Outliers in data pulled from Arctos - `outlier_report.ipynb`
 
-### Ranges Report - `ranges_report.ipynb`
-Dashboard for visualizing progress on the ranges digitization project.
+
+### Identify Outliers in a Ranges Upload Sheet - `ranges_outliers.ipynb`
+
+
+### Sheet Processing - `process_sheet.ipynb`
 
 
 ### Data
