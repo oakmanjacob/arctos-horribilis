@@ -11,8 +11,8 @@ ureg = pint.UnitRegistry()
 import streamlit as st
 import pandas as pd
 
-from ranges.sheets import SheetParser
-from ranges.specimen import Specimen
+from src.ranges.sheets import SheetParser
+from src.ranges.specimen import Specimen
 
 st.set_page_config(page_title="Verification and Upload", layout="wide")
 st.title("Prepare Ranges Sheets for Upload to Arctos")
