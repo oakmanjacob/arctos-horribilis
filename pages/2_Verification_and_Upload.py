@@ -1,9 +1,6 @@
-import sys
-import os
 import io
 import csv
 import pint
-import numpy as np
 import plotly.express as px
 
 ureg = pint.UnitRegistry()
