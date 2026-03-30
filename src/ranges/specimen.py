@@ -2,8 +2,8 @@ import pandas as pd
 
 from decimal import Decimal
 
-from ranges.units import DistanceUnit, WeightUnit
-from ranges.sheets import SheetParser
+from src.ranges.units import DistanceUnit, WeightUnit
+from src.ranges.sheets import SheetParser
 
 
 class CommonData:

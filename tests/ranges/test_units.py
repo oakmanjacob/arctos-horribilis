@@ -1,6 +1,7 @@
 import unittest
 
-from ranges.units import DistanceUnit, WeightUnit
+from src.ranges.units import DistanceUnit, WeightUnit
+
 
 class TestDistanceUnit(unittest.TestCase):
     def test_parse(self):
@@ -13,28 +14,28 @@ class TestDistanceUnit(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             DistanceUnit.from_string("g")
-        
+
         with self.assertRaises(ValueError):
             DistanceUnit.from_string("oz")
-        
+
         with self.assertRaises(ValueError):
             DistanceUnit.from_string("mmg")
-        
+
         with self.assertRaises(ValueError):
             DistanceUnit.from_string("")
-        
+
         with self.assertRaises(ValueError):
             DistanceUnit.from_string(123)
-    
+
     def test_split_value(self):
         value, unit = DistanceUnit.split_value("143mm")
         self.assertEqual(value, "143")
         self.assertEqual(unit, DistanceUnit.MILLIMETERS)
-        
+
         value, unit = DistanceUnit.split_value("142 mm")
         self.assertEqual(value, "142")
         self.assertEqual(unit, DistanceUnit.MILLIMETERS)
-        
+
         value, unit = DistanceUnit.split_value(" 123 mm")
         self.assertEqual(value, "123")
         self.assertEqual(unit, DistanceUnit.MILLIMETERS)
@@ -59,8 +60,6 @@ class TestDistanceUnit(unittest.TestCase):
             value, unit = DistanceUnit.split_value(None)
 
 
-
-
 class TestWeightUnit(unittest.TestCase):
     def test_parse(self):
         self.assertEqual(WeightUnit.from_string("g"), WeightUnit.GRAMS)
@@ -69,28 +68,28 @@ class TestWeightUnit(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             WeightUnit.from_string("not recorded")
-        
+
         with self.assertRaises(ValueError):
             WeightUnit.from_string("inchesg")
-        
+
         with self.assertRaises(ValueError):
             WeightUnit.from_string("mm")
-        
+
         with self.assertRaises(ValueError):
             WeightUnit.from_string("")
-        
+
         with self.assertRaises(ValueError):
             WeightUnit.from_string(14)
-    
+
     def test_split_value(self):
         value, unit = WeightUnit.split_value("143g")
         self.assertEqual(value, "143")
         self.assertEqual(unit, WeightUnit.GRAMS)
-        
+
         value, unit = WeightUnit.split_value("142 g")
         self.assertEqual(value, "142")
         self.assertEqual(unit, WeightUnit.GRAMS)
-        
+
         value, unit = WeightUnit.split_value(" 123 g")
         self.assertEqual(value, "123")
         self.assertEqual(unit, WeightUnit.GRAMS)
@@ -113,6 +112,7 @@ class TestWeightUnit(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             value, unit = WeightUnit.split_value(None)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -3,8 +3,9 @@ import unittest
 from decimal import Decimal
 from deepdiff import DeepDiff
 
-from ranges.specimen import Specimen, ReviewNeededException
-from ranges.units import DistanceUnit, WeightUnit
+from src.ranges.specimen import Specimen, ReviewNeededException
+from src.ranges.units import DistanceUnit, WeightUnit
+
 
 class TestSpecimenParser(unittest.TestCase):
     def test_create_specimen_0(self):
@@ -28,7 +29,7 @@ class TestSpecimenParser(unittest.TestCase):
             "embs R": None,
             "emb CR": None,
             "unformatted measurements": "Rt. side eaten by Siphid beetle in trap",
-            "scars": None
+            "scars": None,
         }
 
         expected_attributes = [
@@ -93,30 +94,55 @@ class TestSpecimenParser(unittest.TestCase):
                 "attribute_value": "T 3x2",
                 "attribute_date": "1982-06-28",
                 "attribute_determiner": "Richard M. Warner",
-            }
+            },
         ]
 
         specimen = Specimen.from_raw_record(raw_record)
 
         self.assertEqual(specimen.guid, "MVZ:Mamm:12345")
         self.assertEqual(specimen.collectors, "Richard M. Warner")
-        self.assertEqual(specimen.common_data.unformatted_measurements, "Rt. side eaten by Siphid beetle in trap")
+        self.assertEqual(
+            specimen.common_data.unformatted_measurements,
+            "Rt. side eaten by Siphid beetle in trap",
+        )
         self.assertEqual(specimen.reproductive_data.repro_comments, "T 3x2")
         self.assertIsNone(specimen.reproductive_data.scars)
 
-        self.assertEqual(specimen.common_data.total_length, (Decimal(95), DistanceUnit.MILLIMETERS, None))
-        self.assertEqual(specimen.common_data.tail_length, (Decimal(41), DistanceUnit.MILLIMETERS, None))
-        self.assertEqual(specimen.common_data.hind_foot_with_claw, (Decimal(11), DistanceUnit.MILLIMETERS, None))
-        self.assertEqual(specimen.common_data.ear_from_notch, (Decimal(6), DistanceUnit.MILLIMETERS, None))
+        self.assertEqual(
+            specimen.common_data.total_length,
+            (Decimal(95), DistanceUnit.MILLIMETERS, None),
+        )
+        self.assertEqual(
+            specimen.common_data.tail_length,
+            (Decimal(41), DistanceUnit.MILLIMETERS, None),
+        )
+        self.assertEqual(
+            specimen.common_data.hind_foot_with_claw,
+            (Decimal(11), DistanceUnit.MILLIMETERS, None),
+        )
+        self.assertEqual(
+            specimen.common_data.ear_from_notch,
+            (Decimal(6), DistanceUnit.MILLIMETERS, None),
+        )
         self.assertEqual(specimen.common_data.ear_from_crown, (None, None, None))
-        self.assertEqual(specimen.common_data.weight, (Decimal(4), WeightUnit.GRAMS, None))
-        
-        self.assertEqual(specimen.reproductive_data.testes_length, (Decimal(3), DistanceUnit.MILLIMETERS, None))
-        self.assertEqual(specimen.reproductive_data.testes_width, (Decimal(2), DistanceUnit.MILLIMETERS, None))
+        self.assertEqual(
+            specimen.common_data.weight, (Decimal(4), WeightUnit.GRAMS, None)
+        )
+
+        self.assertEqual(
+            specimen.reproductive_data.testes_length,
+            (Decimal(3), DistanceUnit.MILLIMETERS, None),
+        )
+        self.assertEqual(
+            specimen.reproductive_data.testes_width,
+            (Decimal(2), DistanceUnit.MILLIMETERS, None),
+        )
         self.assertEqual(specimen.reproductive_data.embryo_count, (None, None))
         self.assertEqual(specimen.reproductive_data.embryo_count_left, (None, None))
         self.assertEqual(specimen.reproductive_data.embryo_count_right, (None, None))
-        self.assertEqual(specimen.reproductive_data.crown_rump_length, (None, None, None))
+        self.assertEqual(
+            specimen.reproductive_data.crown_rump_length, (None, None, None)
+        )
 
         specimen.collected_date = "1982-06-28"
 
@@ -131,7 +157,6 @@ class TestSpecimenParser(unittest.TestCase):
 
         for expected_unitless_attribute in expected_unitless_attributes:
             self.assertIn(expected_unitless_attribute, unitless_attributes)
-
 
     def test_create_specimen_1(self):
         raw_record = {
@@ -154,7 +179,7 @@ class TestSpecimenParser(unittest.TestCase):
             "embs R": "1",
             "emb CR": "3.123",
             "unformatted measurements": "  ",
-            "scars": None
+            "scars": None,
         }
 
         expected_attributes = [
@@ -191,7 +216,7 @@ class TestSpecimenParser(unittest.TestCase):
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "unformatted measurements",
-                "attribute_value": "\"tail length\": \"13+\", \"weight\": \"4*\"",
+                "attribute_value": '"tail length": "13+", "weight": "4*"',
                 "attribute_date": "1982-06-28",
                 "attribute_determiner": "Richard M. Warner",
             },
@@ -205,19 +230,30 @@ class TestSpecimenParser(unittest.TestCase):
         self.assertIsNone(specimen.reproductive_data.repro_comments)
         self.assertIsNone(specimen.reproductive_data.scars)
 
-        self.assertEqual(specimen.common_data.total_length, (Decimal("14.38"), DistanceUnit.INCHES, "14 3/8"))
-        self.assertEqual(specimen.common_data.tail_length, (None, DistanceUnit.INCHES, "13+"))
-        self.assertEqual(specimen.common_data.hind_foot_with_claw, (Decimal("4.62"), DistanceUnit.INCHES, "4 5/8"))
+        self.assertEqual(
+            specimen.common_data.total_length,
+            (Decimal("14.38"), DistanceUnit.INCHES, "14 3/8"),
+        )
+        self.assertEqual(
+            specimen.common_data.tail_length, (None, DistanceUnit.INCHES, "13+")
+        )
+        self.assertEqual(
+            specimen.common_data.hind_foot_with_claw,
+            (Decimal("4.62"), DistanceUnit.INCHES, "4 5/8"),
+        )
         self.assertEqual(specimen.common_data.ear_from_notch, (None, None, None))
         self.assertEqual(specimen.common_data.ear_from_crown, (None, None, None))
         self.assertEqual(specimen.common_data.weight, (None, WeightUnit.GRAMS, "4*"))
-        
+
         self.assertEqual(specimen.reproductive_data.testes_length, (None, None, None))
         self.assertEqual(specimen.reproductive_data.testes_width, (None, None, None))
         self.assertEqual(specimen.reproductive_data.embryo_count, (3, None))
         self.assertEqual(specimen.reproductive_data.embryo_count_left, (2, None))
         self.assertEqual(specimen.reproductive_data.embryo_count_right, (1, None))
-        self.assertEqual(specimen.reproductive_data.crown_rump_length, (Decimal("3.123"), DistanceUnit.INCHES, None))
+        self.assertEqual(
+            specimen.reproductive_data.crown_rump_length,
+            (Decimal("3.123"), DistanceUnit.INCHES, None),
+        )
 
         specimen.collected_date = "1982-06-28"
 
@@ -255,7 +291,7 @@ class TestSpecimenParser(unittest.TestCase):
             "emb CR": "3.123",
             "unformatted measurements": "  ",
             "scars": None,
-            "REVIEW NEEDED": "total length needs review"
+            "REVIEW NEEDED": "total length needs review",
         }
 
         with self.assertRaises(ReviewNeededException):
