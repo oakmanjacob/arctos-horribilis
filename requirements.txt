@@ -19,3 +19,4 @@ deepdiff
 ratelimit
 backoff
 streamlit
+altair<5
