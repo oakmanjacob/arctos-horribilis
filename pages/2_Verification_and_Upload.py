@@ -8,10 +8,6 @@ import plotly.express as px
 
 ureg = pint.UnitRegistry()
 
-project_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-if project_path not in sys.path:
-    sys.path.insert(0, project_path)
-
 import streamlit as st
 import pandas as pd
 

@@ -1,14 +1,8 @@
-import sys
-import os
 import csv
 import io
 
 import pandas as pd
 import streamlit as st
-
-project_path = os.path.abspath(os.path.dirname(__file__))
-if project_path not in sys.path:
-    sys.path.insert(0, project_path)
 
 st.set_page_config(page_title="Ranges Tools for Arctos", layout="wide")
 
