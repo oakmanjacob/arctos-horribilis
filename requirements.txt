@@ -1,5 +1,5 @@
 pandas
 plotly
 pint
-streamlit=1.55.0
+streamlit==1.55.0
 standard-imghdr
