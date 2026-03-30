@@ -18,3 +18,4 @@ statsmodels
 deepdiff
 ratelimit
 backoff
+streamlit
