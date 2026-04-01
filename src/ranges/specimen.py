@@ -184,11 +184,6 @@ class Specimen:
                         "attribute_units": value[1].value,
                         "attribute_date": self.collected_date,
                         "attribute_remark": value[2],
-                        "attribute_determiner": (
-                            self.collectors.split(",")[0]
-                            if self.collectors is not None
-                            else None
-                        ),
                     }
                 )
 
@@ -205,11 +200,6 @@ class Specimen:
                     "attribute_type": "unformatted measurements",
                     "attribute_value": ", ".join(unparsed_values),
                     "attribute_date": self.collected_date,
-                    "attribute_determiner": (
-                        self.collectors.split(",")[0]
-                        if self.collectors is not None
-                        else None
-                    ),
                 }
             )
 
@@ -220,11 +210,6 @@ class Specimen:
                     "attribute_type": "reproductive data",
                     "attribute_value": self.reproductive_data.repro_comments,
                     "attribute_date": self.collected_date,
-                    "attribute_determiner": (
-                        self.collectors.split(",")[0]
-                        if self.collectors is not None
-                        else None
-                    ),
                 }
             )
 
