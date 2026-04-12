@@ -182,7 +182,6 @@ class Specimen:
                         "attribute_type": attribute_type,
                         "attribute_value": str(value[0]),
                         "attribute_units": value[1].value,
-                        "attribute_date": self.collected_date,
                         "attribute_remark": value[2],
                     }
                 )
@@ -199,7 +198,6 @@ class Specimen:
                     "guid": self.guid,
                     "attribute_type": "unformatted measurements",
                     "attribute_value": ", ".join(unparsed_values),
-                    "attribute_date": self.collected_date,
                 }
             )
 
@@ -209,7 +207,6 @@ class Specimen:
                     "guid": self.guid,
                     "attribute_type": "reproductive data",
                     "attribute_value": self.reproductive_data.repro_comments,
-                    "attribute_date": self.collected_date,
                 }
             )
 
