@@ -7,144 +7,132 @@ from typing import Union
 from src.ranges.units import DistanceUnit, WeightUnit
 
 
+class CellParser:
+    def __init__(self):
+        raise NotImplementedError
+
+    def parse(self, raw_value: str) -> any:
+        raise NotImplementedError
+
+    def validate(self, raw_value: str) -> bool:
+        raise NotImplementedError
+
+
 class SheetParser:
     expected_columns = [
         {
-            "column_name": "mvz_num",
+            "column_name": "guid",
             "valid_names": ["MVZ #", "MVZ#", "catalognumberint", "mvz", "mvz_num"],
-            "type": "whole",
             "optional": False,
         },
         {
             "column_name": "collector",
             "valid_names": ["collector", "collectors", "COLLECTORS"],
-            "type": "text",
             "optional": True,
         },
         {
             "column_name": "scientific_name",
             "valid_names": ["scientific_name", "subspecies"],
-            "type": "text",
             "optional": False,
         },
         {
             "column_name": "date",
             "valid_names": ["date"],
-            "type": "text",
             "optional": True,
         },
         {
             "column_name": "total_length",
             "valid_names": ["total", "total_length", "total length"],
-            "type": "decimal",
             "optional": False,
         },
         {
             "column_name": "tail_length",
             "valid_names": ["tail", "tail_length", "tail length"],
-            "type": "decimal",
             "optional": False,
         },
         {
             "column_name": "hind_foot_with_claw",
             "valid_names": ["hf", "hind_foot_with_claw", "hind foot with claw"],
-            "type": "decimal",
             "optional": False,
         },
         {
             "column_name": "ear",
             "valid_names": ["ear"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "ear_from_notch",
             "valid_names": ["Notch", "ear_from_notch"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "ear_from_crown",
             "valid_names": ["Crown", "ear_from_crown"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "distance_unit",
             "valid_names": ["unit", "distance_units", "length_units"],
-            "type": "distance_unit",
             "optional": False,
         },
         {
             "column_name": "weight",
             "valid_names": ["wt", "weight"],
-            "type": "decimal",
             "optional": False,
         },
         {
             "column_name": "weight_unit",
             "valid_names": ["units", "weight_unit", "weight_units"],
-            "type": "mass_unit",
             "optional": False,
         },
         {
             "column_name": "reproductive_data",
             "valid_names": ["repro comments", "reproductive data", "reproductive_data"],
-            "type": "text",
             "optional": False,
         },
         {
             "column_name": "testes_length",
             "valid_names": ["testes L", "testis L"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "testes_width",
             "valid_names": ["testes W", "testes R", "testis W", "testis R"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "embryo_count",
             "valid_names": ["emb count"],
-            "type": "whole",
             "optional": True,
         },
         {
             "column_name": "embryo_count_left",
             "valid_names": ["embs L"],
-            "type": "whole",
             "optional": True,
         },
         {
             "column_name": "embryo_count_right",
             "valid_names": ["embs R"],
-            "type": "whole",
             "optional": True,
         },
         {
             "column_name": "crown_rump_length",
             "valid_names": ["emb CR"],
-            "type": "decimal",
             "optional": True,
         },
         {
             "column_name": "scars",
             "valid_names": ["scars"],
-            "type": "text",
             "optional": True,
         },
         {
             "column_name": "unformatted_measurements",
             "valid_names": ["unformatted measurements"],
-            "type": "text",
             "optional": True,
         },
         {
             "column_name": "review_needed",
             "valid_names": ["REVIEW NEEDED"],
-            "type": "text",
             "optional": True,
         },
     ]
@@ -173,23 +161,14 @@ class SheetParser:
 
         return True
 
-    def parse_mvz_guid(value: str) -> str:
-        if value is None:
-            raise ValueError("Cannot parse guid from None value")
-
-        matched = re.match(r"^(?:MVZ)?:?(?:Mamm)?:?([0-9]+)$", value)
-
-        if matched is None:
-            raise ValueError("Couldn't parse guid from value", f"'{value}'")
-
-        return f"MVZ:Mamm:{int(matched.group(1))}"
-
     def verify_columns_exist(columns):
         missing_columns = []
 
         for expected_column in SheetParser.expected_columns:
             found = False
-            for valid_name in expected_column["valid_names"]:
+            for valid_name in expected_column["valid_names"] + [
+                expected_column["column_name"]
+            ]:
                 if valid_name in columns:
                     found = True
 
@@ -204,7 +183,9 @@ class SheetParser:
         found_columns = set()
         for expected_column in SheetParser.expected_columns:
             found = False
-            for valid_name in expected_column["valid_names"]:
+            for valid_name in expected_column["valid_names"] + [
+                expected_column["column_name"]
+            ]:
                 if valid_name in raw_record:
                     column = raw_record[valid_name]
                     if isinstance(column, str):
@@ -251,6 +232,14 @@ class SheetParser:
             )
 
         return record
+
+    def parse_guid(guid: str) -> str:
+        matched = re.match(r"^(?=.{3,20}:[^:]+$)([A-Za-z]+:[A-Za-z]+):([^:]+)$", guid)
+
+        if not matched:
+            raise ValueError("Guid does not match valid Arctos format", guid)
+
+        return matched.group(1), matched.group(2)
 
     def parse_numerical_attribute(
         raw_value: str,

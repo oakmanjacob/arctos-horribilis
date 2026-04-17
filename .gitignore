@@ -3,3 +3,5 @@
 .Rproj.user
 __pycache__/
 out
+*.egg_info
+.venv

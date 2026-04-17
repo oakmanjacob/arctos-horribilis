@@ -7,16 +7,15 @@ import streamlit as st
 st.set_page_config(page_title="Ranges Tools for Arctos", layout="wide")
 
 MAPPING = {
-    "mvz_num": "MVZ_NUM",
     "guid": "GUID",
-    "subspecies": "SUBSPECIES",
+    "scientific_name": "SUBSPECIES",
     "collectors": "COLLECTORS",
     "country": "COUNTRY",
     "state_prov": "STATE_PROV",
     "county": "COUNTY",
     "spec_locality": "SPEC_LOCALITY",
     "parts": "PARTS",
-    "ended_date": "ENDED_DATE",
+    "date": "ENDED_DATE",
     "total_length": "TOTALLENGTH_VALUE",
     "tail_length": "TAILLENGTH_VALUE",
     "hind_foot_with_claw": "HINDFOOTWITHCLAW_VALUE",
@@ -32,15 +31,14 @@ MAPPING = {
 
 # NOTE: Make sure to update the sorting logic if you change these at all
 FIELD_NAMES = [
-    "mvz_num",
     "guid",
-    "subspecies",
+    "scientific_name",
     "collectors",
     "country",
     "state_prov",
     "county",
     "spec_locality",
-    "ended_date",
+    "date",
     "parts",
     "total_length",
     "tail_length",
@@ -61,7 +59,6 @@ FIELD_NAMES = [
     "scars",
     "unformatted_measurements",
     "initials",
-    "day",
     "month",
     "year",
     "review_needed",
@@ -146,9 +143,6 @@ missing_fields = [
     value for value in MAPPING.values() if value not in arctos_data.columns
 ]
 
-if "MVZ_NUM" in missing_fields:
-    missing_fields.remove("MVZ_NUM")
-
 if "GUID" in missing_fields:
     st.error(f"GUID missing in input file {arctos_sheet.name}, invalid sheet.")
     st.stop()
@@ -160,14 +154,15 @@ else:
 non_ranges_rows = []
 output_rows = []
 for row in arctos_data.to_dict(orient="records"):
-    row["MVZ_NUM"] = row["GUID"].split(":")[-1]
-
     output_row = {
         field: (
             row[MAPPING[field]] if field in MAPPING and MAPPING[field] in row else ""
         )
         for field in FIELD_NAMES
     }
+
+    if not output_row["scientific_name"] and "SPECIES" in row:
+        output_row["scientific_name"] = row["SPECIES"]
 
     if (
         output_row["country"] not in ["United States", "Mexico", "Canada"]
@@ -197,12 +192,12 @@ if non_ranges_rows:
 
 output_rows.sort(
     key=lambda row: (
-        row["subspecies"],
+        row["scientific_name"],
         row["country"],
         row["state_prov"],
         row["county"],
         row["spec_locality"],
-        row["mvz_num"],
+        row["guid"],
     )
 )
 

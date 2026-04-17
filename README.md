@@ -25,11 +25,30 @@ Currently data is stored in the /data directory. This data was retrieved from ar
 Install python 3 (https://www.python.org/downloads/)
 
 From this directory, install all required pip packages.
-```shell
+
+```powershell
+python.exe -m venv .venv
+
+./.venv/Scripts/Activate.ps1
+
 pip install -r requirements.txt
 ```
 
+You can deactivate the python virtual environment at any time using the following.
+```powershell
+deactivate
+```
+
 ## Usage
+
+### Streamlit Site
+
+With the virtual environment activated and all packages installed, run the streamlit server.
+```powershell
+streamlit run Sheet_Generator.py
+```
+
+
 ### Jupyter Notebook
 Start the Jupyter Kernel
 ```shell
