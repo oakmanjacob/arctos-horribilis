@@ -22,8 +22,13 @@ class SheetParser:
     expected_columns = [
         {
             "column_name": "guid",
-            "valid_names": ["MVZ #", "MVZ#", "catalognumberint", "mvz", "mvz_num"],
-            "optional": False,
+            "valid_names": ["Guid"],
+            "optional": True,
+        },
+        {
+            "column_name": "mvz_num",
+            "valid_names": ["MVZ #", "MVZ#", "mvz", "mvz_num"],
+            "optional": True,
         },
         {
             "column_name": "collector",
@@ -183,8 +188,8 @@ class SheetParser:
         found_columns = set()
         for expected_column in SheetParser.expected_columns:
             found = False
-            for valid_name in expected_column["valid_names"] + [
-                expected_column["column_name"]
+            for valid_name in [expected_column["column_name"]] + expected_column[
+                "valid_names"
             ]:
                 if valid_name in raw_record:
                     column = raw_record[valid_name]

@@ -73,7 +73,14 @@ class Specimen:
     def from_raw_record(raw_record):
         record = SheetParser.extract_record(raw_record)
 
-        guid = ":".join(SheetParser.parse_guid(record["guid"]))
+        if not record["guid"] and not record["mvz_num"]:
+            raise ValueError(f"Could not find guid or mvz_num field in {raw_record}")
+
+        guid = (
+            ":".join(SheetParser.parse_guid(record["guid"]))
+            if record["guid"]
+            else f"MVZ:Mamm:{int(record["mvz_num"])}"
+        )
         distance_unit = DistanceUnit.from_string(record["distance_unit"])
         weight_unit = WeightUnit.from_string(record["weight_unit"])
 
