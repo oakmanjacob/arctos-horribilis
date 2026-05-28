@@ -136,6 +136,11 @@ class SheetParser:
             "optional": True,
         },
         {
+            "column_name": "initials",
+            "valid_names": ["initials"],
+            "optional": False,
+        },
+        {
             "column_name": "review_needed",
             "valid_names": ["REVIEW NEEDED"],
             "optional": True,

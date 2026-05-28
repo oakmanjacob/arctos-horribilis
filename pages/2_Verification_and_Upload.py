@@ -50,7 +50,9 @@ specimens = []
 for raw_record in accession_data:
     try:
         specimen = Specimen.from_raw_record(raw_record)
-        specimens.append(specimen)
+
+        if specimen.initials:
+            specimens.append(specimen)
     except Exception as ex:
         review_needed.append([raw_record["guid"], str(ex)])
 

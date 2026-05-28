@@ -59,6 +59,7 @@ class Specimen:
         reproductive_data,
         distance_unit,
         weight_unit,
+        initials,
     ):
         self.guid = guid
         self.scientific_name = scientific_name
@@ -69,6 +70,7 @@ class Specimen:
         self.reproductive_data = reproductive_data
         self.distance_unit = distance_unit
         self.weight_unit = weight_unit
+        self.initials = self.initials
 
     def from_raw_record(raw_record):
         record = SheetParser.extract_record(raw_record)
@@ -141,6 +143,7 @@ class Specimen:
             ),
             distance_unit=distance_unit,
             weight_unit=weight_unit,
+            initials=record["initials"],
         )
 
     def to_dict(self):
