@@ -137,7 +137,10 @@ class SheetParser:
         },
         {
             "column_name": "initials",
-            "valid_names": ["initials"],
+            "valid_names": [
+                "Initials",
+                "tag checked? (or no tag available), initial here",
+            ],
             "optional": False,
         },
         {
