@@ -3,8 +3,37 @@ import re
 
 from decimal import Decimal, InvalidOperation
 from typing import Union
+from enum import StrEnum
 
 from src.ranges.units import DistanceUnit, WeightUnit
+
+
+class LifeStage(StrEnum):
+    ADULT = "adult"
+    SUBADULT = "subadult"
+    JUVENILE = "juvenile"
+    EMBRYO = "embryo"
+    VIEW_DOCUMENTATION = "* View Documentation"
+
+    def parse(life_stage: str) -> LifeStage:
+        life_stage = life_stage.strip(". ").lower()
+
+        if life_stage in ["adult", "ad"]:
+            return LifeStage.ADULT
+
+        if life_stage in ["subadult", "immature", "imm", "im", "yg"]:
+            return LifeStage.SUBADULT
+
+        if life_stage in ["juvenile", "juv", "jv", "j"]:
+            return LifeStage.JUVENILE
+
+        if life_stage in ["embryo", "emb"]:
+            return LifeStage.EMBRYO
+
+        if life_stage == "* view documentation":
+            return LifeStage.VIEW_DOCUMENTATION
+
+        raise ValueError("Invalid lifestage value: ", life_stage)
 
 
 class CellParser:
@@ -22,7 +51,7 @@ class SheetParser:
     expected_columns = [
         {
             "column_name": "guid",
-            "valid_names": ["Guid"],
+            "valid_names": [],
             "optional": True,
         },
         {
@@ -76,6 +105,16 @@ class SheetParser:
             "optional": True,
         },
         {
+            "column_name": "tragus",
+            "valid_names": ["TRAGUS"],
+            "optional": True,
+        },
+        {
+            "column_name": "forearm",
+            "valid_names": ["FOREARM"],
+            "optional": True,
+        },
+        {
             "column_name": "distance_unit",
             "valid_names": ["unit", "distance_units", "length_units"],
             "optional": False,
@@ -89,6 +128,11 @@ class SheetParser:
             "column_name": "weight_unit",
             "valid_names": ["units", "weight_unit", "weight_units"],
             "optional": False,
+        },
+        {
+            "column_name": "life_stage",
+            "valid_names": ["life stage"],
+            "optional": True,
         },
         {
             "column_name": "reproductive_data",
@@ -169,6 +213,7 @@ class SheetParser:
                 "no measurements",
                 "not recoded",
                 "no data",
+                "null.",
             ]:
                 return False
 
@@ -304,3 +349,12 @@ class SheetParser:
             remarks = raw_value
 
         return value, remarks
+
+    def parse_life_stage(raw_value: str) -> tuple[LifeStage, str]:
+        if raw_value is None:
+            return None, None
+
+        life_stage = LifeStage.parse(raw_value)
+        remarks = f'Originally reported as "{raw_value}" - TTA'
+
+        return life_stage, remarks
