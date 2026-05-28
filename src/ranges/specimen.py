@@ -70,7 +70,7 @@ class Specimen:
         self.reproductive_data = reproductive_data
         self.distance_unit = distance_unit
         self.weight_unit = weight_unit
-        self.initials = self.initials
+        self.initials = initials
 
     def from_raw_record(raw_record):
         record = SheetParser.extract_record(raw_record)
