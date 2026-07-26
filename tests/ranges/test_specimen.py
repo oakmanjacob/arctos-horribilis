@@ -1,7 +1,6 @@
 import unittest
 
 from decimal import Decimal
-from deepdiff import DeepDiff
 
 from src.ranges.specimen import Specimen, ReviewNeededException
 from src.ranges.units import DistanceUnit, WeightUnit
@@ -11,6 +10,7 @@ class TestSpecimenParser(unittest.TestCase):
     def test_create_specimen_0(self):
         raw_record = {
             "MVZ #": "12345",
+            "scientific_name": "",
             "collector": "Richard M. Warner",
             "total": "95",
             "tail": "41",
@@ -30,6 +30,7 @@ class TestSpecimenParser(unittest.TestCase):
             "emb CR": None,
             "unformatted measurements": "Rt. side eaten by Siphid beetle in trap",
             "scars": None,
+            "initials": "ABC",
         }
 
         expected_attributes = [
@@ -38,45 +39,35 @@ class TestSpecimenParser(unittest.TestCase):
                 "attribute_type": "total length",
                 "attribute_value": "95",
                 "attribute_units": "mm",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "tail length",
                 "attribute_value": "41",
                 "attribute_units": "mm",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "hind foot with claw",
                 "attribute_value": "11",
                 "attribute_units": "mm",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "ear from notch",
                 "attribute_value": "6",
                 "attribute_units": "mm",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "weight",
                 "attribute_value": "4",
                 "attribute_units": "g",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
         ]
 
@@ -85,15 +76,13 @@ class TestSpecimenParser(unittest.TestCase):
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "unformatted measurements",
                 "attribute_value": "Rt. side eaten by Siphid beetle in trap",
-                "attribute_date": "1982-06-28",
-                "attribute_determiner": "Richard M. Warner",
+                "attribute_remark": "",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "reproductive data",
                 "attribute_value": "T 3x2",
-                "attribute_date": "1982-06-28",
-                "attribute_determiner": "Richard M. Warner",
+                "attribute_remark": "",
             },
         ]
 
@@ -102,47 +91,43 @@ class TestSpecimenParser(unittest.TestCase):
         self.assertEqual(specimen.guid, "MVZ:Mamm:12345")
         self.assertEqual(specimen.collectors, "Richard M. Warner")
         self.assertEqual(
-            specimen.common_data.unformatted_measurements,
+            specimen.unformatted_measurements,
             "Rt. side eaten by Siphid beetle in trap",
         )
-        self.assertEqual(specimen.reproductive_data.repro_comments, "T 3x2")
-        self.assertIsNone(specimen.reproductive_data.scars)
+        self.assertEqual(specimen.repro_comments, "T 3x2")
+        self.assertIsNone(specimen.scars)
 
         self.assertEqual(
-            specimen.common_data.total_length,
+            specimen.total_length,
             (Decimal(95), DistanceUnit.MILLIMETERS, None),
         )
         self.assertEqual(
-            specimen.common_data.tail_length,
+            specimen.tail_length,
             (Decimal(41), DistanceUnit.MILLIMETERS, None),
         )
         self.assertEqual(
-            specimen.common_data.hind_foot_with_claw,
+            specimen.hind_foot_with_claw,
             (Decimal(11), DistanceUnit.MILLIMETERS, None),
         )
         self.assertEqual(
-            specimen.common_data.ear_from_notch,
+            specimen.ear_from_notch,
             (Decimal(6), DistanceUnit.MILLIMETERS, None),
         )
-        self.assertEqual(specimen.common_data.ear_from_crown, (None, None, None))
-        self.assertEqual(
-            specimen.common_data.weight, (Decimal(4), WeightUnit.GRAMS, None)
-        )
+        self.assertEqual(specimen.ear_from_crown, (None, None, None))
+        self.assertEqual(specimen.weight, (Decimal(4), WeightUnit.GRAMS, None))
 
         self.assertEqual(
-            specimen.reproductive_data.testes_length,
+            specimen.testes_length,
             (Decimal(3), DistanceUnit.MILLIMETERS, None),
         )
         self.assertEqual(
-            specimen.reproductive_data.testes_width,
+            specimen.testes_width,
             (Decimal(2), DistanceUnit.MILLIMETERS, None),
         )
-        self.assertEqual(specimen.reproductive_data.embryo_count, (None, None))
-        self.assertEqual(specimen.reproductive_data.embryo_count_left, (None, None))
-        self.assertEqual(specimen.reproductive_data.embryo_count_right, (None, None))
-        self.assertEqual(
-            specimen.reproductive_data.crown_rump_length, (None, None, None)
-        )
+        self.assertEqual(specimen.embryo_count, (None, None))
+        self.assertEqual(specimen.embryo_count_left, (None, None))
+        self.assertEqual(specimen.embryo_count_right, (None, None))
+        self.assertEqual(specimen.crown_rump_length, (None, None, None))
 
         specimen.collected_date = "1982-06-28"
 
@@ -161,6 +146,7 @@ class TestSpecimenParser(unittest.TestCase):
     def test_create_specimen_1(self):
         raw_record = {
             "MVZ #": "12345",
+            "scientific_name": "",
             "collector": "Richard M. Warner",
             "total": "14 3/8 in.",
             "tail": "13+",
@@ -180,6 +166,7 @@ class TestSpecimenParser(unittest.TestCase):
             "emb CR": "3.123",
             "unformatted measurements": "  ",
             "scars": None,
+            "initials": "ABC",
         }
 
         expected_attributes = [
@@ -188,27 +175,21 @@ class TestSpecimenParser(unittest.TestCase):
                 "attribute_type": "total length",
                 "attribute_value": "14.38",
                 "attribute_units": "in",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": "14 3/8",
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "hind foot with claw",
                 "attribute_value": "4.62",
                 "attribute_units": "in",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": "4 5/8",
-                "attribute_determiner": "Richard M. Warner",
             },
             {
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "crown-rump length",
                 "attribute_value": "3.123",
                 "attribute_units": "in",
-                "attribute_date": "1982-06-28",
                 "attribute_remark": None,
-                "attribute_determiner": "Richard M. Warner",
             },
         ]
 
@@ -217,8 +198,7 @@ class TestSpecimenParser(unittest.TestCase):
                 "guid": "MVZ:Mamm:12345",
                 "attribute_type": "unformatted measurements",
                 "attribute_value": '"tail length": "13+", "weight": "4*"',
-                "attribute_date": "1982-06-28",
-                "attribute_determiner": "Richard M. Warner",
+                "attribute_remark": "",
             },
         ]
 
@@ -226,32 +206,30 @@ class TestSpecimenParser(unittest.TestCase):
 
         self.assertEqual(specimen.guid, "MVZ:Mamm:12345")
         self.assertEqual(specimen.collectors, "Richard M. Warner")
-        self.assertIsNone(specimen.common_data.unformatted_measurements)
-        self.assertIsNone(specimen.reproductive_data.repro_comments)
-        self.assertIsNone(specimen.reproductive_data.scars)
+        self.assertIsNone(specimen.unformatted_measurements)
+        self.assertIsNone(specimen.repro_comments)
+        self.assertIsNone(specimen.scars)
 
         self.assertEqual(
-            specimen.common_data.total_length,
+            specimen.total_length,
             (Decimal("14.38"), DistanceUnit.INCHES, "14 3/8"),
         )
+        self.assertEqual(specimen.tail_length, (None, DistanceUnit.INCHES, "13+"))
         self.assertEqual(
-            specimen.common_data.tail_length, (None, DistanceUnit.INCHES, "13+")
-        )
-        self.assertEqual(
-            specimen.common_data.hind_foot_with_claw,
+            specimen.hind_foot_with_claw,
             (Decimal("4.62"), DistanceUnit.INCHES, "4 5/8"),
         )
-        self.assertEqual(specimen.common_data.ear_from_notch, (None, None, None))
-        self.assertEqual(specimen.common_data.ear_from_crown, (None, None, None))
-        self.assertEqual(specimen.common_data.weight, (None, WeightUnit.GRAMS, "4*"))
+        self.assertEqual(specimen.ear_from_notch, (None, None, None))
+        self.assertEqual(specimen.ear_from_crown, (None, None, None))
+        self.assertEqual(specimen.weight, (None, WeightUnit.GRAMS, "4*"))
 
-        self.assertEqual(specimen.reproductive_data.testes_length, (None, None, None))
-        self.assertEqual(specimen.reproductive_data.testes_width, (None, None, None))
-        self.assertEqual(specimen.reproductive_data.embryo_count, (3, None))
-        self.assertEqual(specimen.reproductive_data.embryo_count_left, (2, None))
-        self.assertEqual(specimen.reproductive_data.embryo_count_right, (1, None))
+        self.assertEqual(specimen.testes_length, (None, None, None))
+        self.assertEqual(specimen.testes_width, (None, None, None))
+        self.assertEqual(specimen.embryo_count, (3, None))
+        self.assertEqual(specimen.embryo_count_left, (2, None))
+        self.assertEqual(specimen.embryo_count_right, (1, None))
         self.assertEqual(
-            specimen.reproductive_data.crown_rump_length,
+            specimen.crown_rump_length,
             (Decimal("3.123"), DistanceUnit.INCHES, None),
         )
 
@@ -272,6 +250,7 @@ class TestSpecimenParser(unittest.TestCase):
     def test_review_needed(self):
         raw_record = {
             "MVZ #": "12345",
+            "scientific_name": "",
             "collector": "Richard M. Warner",
             "total": "14 3/8 in.",
             "tail": "13+",
@@ -291,6 +270,7 @@ class TestSpecimenParser(unittest.TestCase):
             "emb CR": "3.123",
             "unformatted measurements": "  ",
             "scars": None,
+            "initials": "ABC",
             "REVIEW NEEDED": "total length needs review",
         }
 

@@ -22,28 +22,31 @@ class TestSheetParser(unittest.TestCase):
         self.assertTrue(SheetParser.is_recorded("123+\n in!"))
         self.assertTrue(SheetParser.is_recorded("123 in"))
 
-    def test_parse_mvz_guid(self):
-        self.assertEqual(SheetParser.parse_mvz_guid("MVZ:Mamm:12345"), "MVZ:Mamm:12345")
-        self.assertEqual(SheetParser.parse_mvz_guid("Mamm:12345"), "MVZ:Mamm:12345")
-        self.assertEqual(SheetParser.parse_mvz_guid("12345"), "MVZ:Mamm:12345")
-        self.assertEqual(SheetParser.parse_mvz_guid(":12345"), "MVZ:Mamm:12345")
-        self.assertEqual(SheetParser.parse_mvz_guid("::12345"), "MVZ:Mamm:12345")
+    def test_parse_guid(self):
+        self.assertEqual(
+            SheetParser.parse_guid("MVZ:Mamm:12345"), ("MVZ:Mamm", "12345")
+        )
+        self.assertEqual(
+            SheetParser.parse_guid("MVZ:Herp:12345"), ("MVZ:Herp", "12345")
+        )
+        self.assertEqual(
+            SheetParser.parse_guid("UCMP:Val:12345"), ("UCMP:Val", "12345")
+        )
 
-        with self.assertRaises(
-            ValueError, msg="Couldn't parse guid from value 'MVZ:Herp:12345'"
-        ):
-            self.assertEqual(
-                SheetParser.parse_mvz_guid("MVZ:Herp:12345"), "MVZ:Mamm:12345"
-            )
+        with self.assertRaises(ValueError):
+            SheetParser.parse_guid("Mamm:12345")
 
-        with self.assertRaises(ValueError, msg="Cannot parse guid from None value"):
-            SheetParser.parse_mvz_guid(None)
+        with self.assertRaises(ValueError):
+            SheetParser.parse_guid("12345")
+
+        with self.assertRaises(ValueError):
+            SheetParser.parse_guid("::12345")
 
         with self.assertRaises(ValueError, msg="Couldn't parse guid from value '55g'"):
-            SheetParser.parse_mvz_guid("55g")
+            SheetParser.parse_guid("55g")
 
         with self.assertRaises(ValueError, msg="Couldn't parse guid from value ''"):
-            SheetParser.parse_mvz_guid("")
+            SheetParser.parse_guid("")
 
     def test_parse_numerical_attribute(self):
         number, unit, text = SheetParser.parse_numerical_attribute(
