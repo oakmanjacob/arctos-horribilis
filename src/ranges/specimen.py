@@ -17,8 +17,8 @@ class Specimen:
     hind_foot_with_claw: tuple[Decimal, DistanceUnit, str]
     ear_from_notch: tuple[Decimal, DistanceUnit, str]
     ear_from_crown: tuple[Decimal, DistanceUnit, str]
-    tragus: tuple[Decimal, DistanceUnit, str]
-    forearm: tuple[Decimal, DistanceUnit, str]
+    tragus_length: tuple[Decimal, DistanceUnit, str]
+    forearm_length: tuple[Decimal, DistanceUnit, str]
     weight: tuple[Decimal, WeightUnit, str]
     unformatted_measurements: str | None
 
@@ -77,11 +77,11 @@ class Specimen:
             ear_from_crown=SheetParser.parse_numerical_attribute(
                 record["ear_from_crown"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            tragus=SheetParser.parse_numerical_attribute(
-                record["tragus"], distance_unit, DistanceUnit.MILLIMETERS
+            tragus_length=SheetParser.parse_numerical_attribute(
+                record["tragus_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            forearm=SheetParser.parse_numerical_attribute(
-                record["forearm"], distance_unit, DistanceUnit.MILLIMETERS
+            forearm_length=SheetParser.parse_numerical_attribute(
+                record["forearm_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
             weight=SheetParser.parse_numerical_attribute(
                 record["weight"], weight_unit, WeightUnit.GRAMS
@@ -122,8 +122,8 @@ class Specimen:
             "hind_foot_with_claw": self.hind_foot_with_claw[0],
             "ear_from_notch": self.ear_from_notch[0],
             "ear_from_crown": self.ear_from_crown[0],
-            "tragus": self.tragus[0],
-            "forearm": self.forearm[0],
+            "tragus_length": self.tragus_length[0],
+            "forearm_length": self.forearm_length[0],
             "weight": self.weight[0],
             "unformatted_measurements": self.unformatted_measurements,
             "life_stage": self.life_stage[0],
@@ -150,8 +150,8 @@ class Specimen:
             (self.hind_foot_with_claw, "hind foot with claw"),
             (self.ear_from_notch, "ear from notch"),
             (self.ear_from_crown, "ear from crown"),
-            (self.tragus, "tragus"),
-            (self.forearm, "forearm"),
+            (self.tragus_length, "tragus length"),
+            (self.forearm_length, "forearm length"),
             (self.weight, "weight"),
             (self.crown_rump_length, "crown-rump length"),
         ]:

@@ -24,7 +24,7 @@ MAPPING = {
     "length_units": "TAILLENGTH_UNITS",
     "weight": "WEIGHT_VALUE",
     "weight_units": "WEIGHT_UNITS",
-    "lifestage": "LIFESTAGE_VALUE",
+    "life_stage": "LIFESTAGE_VALUE",
     "reproductive_data": "REPRODUCTIVEDATA_VALUE",
     "unformatted_measurements": "UNFORMATTEDMEASUREMENTS_VALUE",
 }
@@ -48,7 +48,7 @@ FIELD_NAMES = [
     "length_units",
     "weight",
     "weight_units",
-    "lifestage",
+    "life_stage",
     "reproductive_data",
     "testes_length",
     "testes_width",

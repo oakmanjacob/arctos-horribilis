@@ -105,13 +105,13 @@ class SheetParser:
             "optional": True,
         },
         {
-            "column_name": "tragus",
-            "valid_names": ["TRAGUS"],
+            "column_name": "tragus_length",
+            "valid_names": ["TRAGUS", "tragus"],
             "optional": True,
         },
         {
-            "column_name": "forearm",
-            "valid_names": ["FOREARM"],
+            "column_name": "forearm_length",
+            "valid_names": ["FOREARM", "forearm"],
             "optional": True,
         },
         {
