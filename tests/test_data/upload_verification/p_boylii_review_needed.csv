@@ -1,0 +1,12 @@
+﻿guid,Issue
+MVZ:Mamm:55095,"('Record has been marked with Review Needed:', 'reported missing on a note in skin tray')"
+MVZ:Mamm:183927,"('Record has been marked with Review Needed:', 'check tag, is tl 162?')"
+MVZ:Mamm:216445,"('Record has been marked with Review Needed:', 'skin tag says emb 2R-1L instead of 2R 4L')"
+MVZ:Mamm:202038,"('Record has been marked with Review Needed:', 'skin tag says weight = 20 g')"
+MVZ:Mamm:216473,"('Record has been marked with Review Needed:', 'skin tag says 1R 2L instead of 2R 1L')"
+MVZ:Mamm:141264,"('Record has been marked with Review Needed:', 'Double check tag')"
+MVZ:Mamm:141287,"('Record has been marked with Review Needed:', 'Double check tag')"
+MVZ:Mamm:141282,"('Record has been marked with Review Needed:', 'Double check tag')"
+MVZ:Mamm:132804,"('Record has been marked with Review Needed:', 'Double check tag')"
+MVZ:Mamm:132805,"('Record has been marked with Review Needed:', 'Double check tag')"
+,"Could not find guid or mvz_num field in {'catalognumberint': '', 'guid': '', 'subspecies': '', 'collectors': '', 'state_prov': '', 'county': '', 'spec_locality': '', 'collectornumber': '', 'verbatim_date': '', 'parts': '9846', 'sex': '1505', 'total length': '', 'tail length': '', 'hind foot with claw': '', 'ear': '', 'ear from notch': '', 'ear from crown': '', 'unit': '', 'weight': '', 'units': '', 'reproductive data': '', 'testes L': '', 'testes W': '', 'emb count': '', 'embs L': '', 'embs R': '', 'emb CR': '', 'scars': '', 'unformatted measurements': '', 'tag checked? (or no tag available), initial here': '', 'Day': '', 'Month': '', 'Year': '', 'REVIEW NEEDED': ''}"

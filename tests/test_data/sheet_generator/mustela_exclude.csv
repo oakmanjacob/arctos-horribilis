@@ -1,0 +1,4 @@
+﻿guid,scientific_name,collectors,country,state_prov,county,spec_locality,date,parts,total_length,tail_length,hind_foot_with_claw,ear_from_notch,ear_from_crown,length_units,weight,weight_units,lifestage,reproductive_data,testes_length,testes_width,embryo_count,embryo_count_left,embryo_count_right,crown_rump_length,scars,unformatted_measurements,initials,month,year,review_needed
+MVZ:Mamm:53783,Mustela erminea cicognanii,Morris M. Green,Canada,Ontario,,"Franz, Algoma County",1929-04-19,"skin, study; skull",,,,,,,,,,,,,,,,,,,,,,
+MVZ:Mamm:53789,Mustela erminea cicognanii,Morris M. Green,United States,New York,Saint Lawrence County,Ogdensburg,1927-02-01,"skin, study; skull",,,,,,,,,,,,,,,,,,,,,,
+MVZ:Mamm:53798,Mustela frenata noveboracensis,Morris M. Green,United States,New York,Saint Lawrence County,Ogdensburg,1927-02-16,"baculum; skin, study; skull",,,,,,,,,,,,,,,,,,,,,,
