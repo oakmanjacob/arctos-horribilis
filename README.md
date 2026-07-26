@@ -70,5 +70,6 @@ This should open a browser window to `localhost:8888/lab` showing this directory
 
 
 ## Future Work
-- [ ] Deployment as an interactive website using Mercury (https://runmercury.com/)  
-- [ ] Arctos API Integration so we can pull and cache information dynamically
+- [ ] Build out a custom database so we can work directly with the ranges data instead of hitting Arctos with heavy queries
+- [ ] Set up unit tests using golden data for streamlit app and packages and configure these to run as a github action
+- [ ] Refactor code into a standard ETL pipeline
