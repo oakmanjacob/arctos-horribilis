@@ -39,6 +39,13 @@ You can deactivate the python virtual environment at any time using the followin
 deactivate
 ```
 
+## Testing
+```
+python -m unittest discover
+
+python -m unittest test.ranges.test_units
+```
+
 ## Usage
 
 ### Streamlit Site

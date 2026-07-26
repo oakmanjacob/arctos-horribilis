@@ -63,7 +63,11 @@ class TestDistanceUnit(unittest.TestCase):
 class TestWeightUnit(unittest.TestCase):
     def test_parse(self):
         self.assertEqual(WeightUnit.from_string("g"), WeightUnit.GRAMS)
+        self.assertEqual(WeightUnit.from_string("kg"), WeightUnit.KILOGRAMS)
+        self.assertEqual(WeightUnit.from_string("gm"), WeightUnit.GRAMS)
         self.assertEqual(WeightUnit.from_string("oz"), WeightUnit.OUNCES)
+        self.assertEqual(WeightUnit.from_string("lb"), WeightUnit.POUNDS)
+        self.assertEqual(WeightUnit.from_string("lbs"), WeightUnit.POUNDS)
         self.assertIsNone(WeightUnit.from_string(None))
 
         with self.assertRaises(ValueError):

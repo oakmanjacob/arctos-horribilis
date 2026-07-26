@@ -100,7 +100,8 @@ for attribute in [
     )
 
 species_data["weight"] = species_data.apply(
-    lambda x: x["weight"] * 28.3495 if x["weight_unit"] == "oz" else x["weight"], axis=1
+    lambda x: convert_to_metric(x["weight"], x["weight_unit"]),
+    axis=1,
 )
 
 fig = px.scatter(
