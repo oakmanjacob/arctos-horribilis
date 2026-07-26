@@ -21,6 +21,8 @@ MAPPING = {
     "hind_foot_with_claw": "HINDFOOTWITHCLAW_VALUE",
     "ear_from_notch": "EARFROMNOTCH_VALUE",
     "ear_from_crown": "EARFROMCROWN_VALUE",
+    "tragus_length": "TRAGUSLENGTH_VALUE",
+    "forearm_length": "FOREARMLENGTH_VALUE",
     "length_units": "TAILLENGTH_UNITS",
     "weight": "WEIGHT_VALUE",
     "weight_units": "WEIGHT_UNITS",
@@ -146,10 +148,15 @@ missing_fields = [
 if "GUID" in missing_fields:
     st.error(f"GUID missing in input file {arctos_sheet.name}, invalid sheet.")
     st.stop()
-else:
+elif missing_fields:
     st.warning(
         f"Missing fields {missing_fields} in input file: {arctos_sheet.name}, Assuming no data!"
     )
+
+is_bat = st.checkbox("This is for a bat, include tragus_length and forearm_length.")
+if is_bat:
+    insertion_index = FIELD_NAMES.index("length_units")
+    FIELD_NAMES[insertion_index:insertion_index] = ["tragus_length", "forearm_length"]
 
 non_ranges_rows = []
 output_rows = []
