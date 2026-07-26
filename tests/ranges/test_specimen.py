@@ -23,6 +23,7 @@ class TestSpecimenParser(unittest.TestCase):
             "unit": None,
             "wt": "4",
             "units": "g",
+            "life stage": "adult",
             "repro comments": "T 3x2",
             "testes L": "3",
             "testes W": "2",
@@ -100,6 +101,12 @@ class TestSpecimenParser(unittest.TestCase):
                 "attribute_value": "T 3x2",
                 "attribute_remark": "",
             },
+            {
+                "guid": "MVZ:Mamm:12345",
+                "attribute_type": "life stage",
+                "attribute_value": "adult",
+                "attribute_remark": "",
+            },
         ]
 
         specimen = Specimen.from_raw_record(raw_record)
@@ -173,6 +180,7 @@ class TestSpecimenParser(unittest.TestCase):
             "unit": "in",
             "wt": "4*",
             "units": "g",
+            "lifestage": "immature",
             "repro comments": "",
             "testes L": None,
             "testes W": "  ",
@@ -215,6 +223,12 @@ class TestSpecimenParser(unittest.TestCase):
                 "attribute_type": "unformatted measurements",
                 "attribute_value": '"tail length": "13+", "weight": "4*"',
                 "attribute_remark": "",
+            },
+            {
+                "guid": "MVZ:Mamm:12345",
+                "attribute_type": "life stage",
+                "attribute_value": "subadult",
+                "attribute_remark": 'Originally reported as "immature" - TTA',
             },
         ]
 

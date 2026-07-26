@@ -197,7 +197,7 @@ class Specimen:
                 {
                     "guid": self.guid,
                     "attribute_type": "life stage",
-                    "attribute_value": self.life_stage[0],
+                    "attribute_value": self.life_stage[0].value,
                     "attribute_remark": self.life_stage[1],
                 }
             )

@@ -131,7 +131,7 @@ class SheetParser:
         },
         {
             "column_name": "life_stage",
-            "valid_names": ["life stage"],
+            "valid_names": ["life stage", "lifestage"],
             "optional": True,
         },
         {
@@ -355,6 +355,9 @@ class SheetParser:
             return None, None
 
         life_stage = LifeStage.parse(raw_value)
-        remarks = f'Originally reported as "{raw_value}" - TTA'
+        remarks = ""
+
+        if life_stage != raw_value:
+            remarks = f'Originally reported as "{raw_value}" - TTA'
 
         return life_stage, remarks
