@@ -2,7 +2,11 @@ import dataclasses
 from decimal import Decimal
 
 from src.ranges.units import DistanceUnit, WeightUnit
-from src.ranges.sheets import SheetParser, LifeStage
+from src.ranges import sheets
+
+
+class ReviewNeededException(Exception):
+    pass
 
 
 @dataclasses.dataclass
@@ -22,7 +26,7 @@ class Specimen:
     weight: tuple[Decimal, WeightUnit, str]
     unformatted_measurements: str | None
 
-    life_stage: tuple[LifeStage, str]
+    life_stage: tuple[sheets.LifeStage, str]
     testes_length: tuple[Decimal, DistanceUnit, str]
     testes_width: tuple[Decimal, DistanceUnit, str]
     embryo_count: tuple[int, str]
@@ -37,13 +41,13 @@ class Specimen:
     initials: str | None
 
     def from_raw_record(raw_record):
-        record = SheetParser.extract_record(raw_record)
+        record = sheets.extract_record(raw_record)
 
         if not record["guid"] and not record["mvz_num"]:
             raise ValueError(f"Could not find guid or mvz_num field in {raw_record}")
 
         guid = (
-            ":".join(SheetParser.parse_guid(record["guid"]))
+            ":".join(sheets.parse_guid(record["guid"]))
             if record["guid"]
             else f"MVZ:Mamm:{int(record["mvz_num"])}"
         )
@@ -60,48 +64,48 @@ class Specimen:
             scientific_name=record["scientific_name"],
             collectors=record["collector"],
             collected_date=record["date"],
-            total_length=SheetParser.parse_numerical_attribute(
+            total_length=sheets.parse_numerical_attribute(
                 record["total_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            tail_length=SheetParser.parse_numerical_attribute(
+            tail_length=sheets.parse_numerical_attribute(
                 record["tail_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            hind_foot_with_claw=SheetParser.parse_numerical_attribute(
+            hind_foot_with_claw=sheets.parse_numerical_attribute(
                 record["hind_foot_with_claw"],
                 distance_unit,
                 DistanceUnit.MILLIMETERS,
             ),
-            ear_from_notch=SheetParser.parse_numerical_attribute(
+            ear_from_notch=sheets.parse_numerical_attribute(
                 record["ear_from_notch"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            ear_from_crown=SheetParser.parse_numerical_attribute(
+            ear_from_crown=sheets.parse_numerical_attribute(
                 record["ear_from_crown"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            tragus_length=SheetParser.parse_numerical_attribute(
+            tragus_length=sheets.parse_numerical_attribute(
                 record["tragus_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            forearm_length=SheetParser.parse_numerical_attribute(
+            forearm_length=sheets.parse_numerical_attribute(
                 record["forearm_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            weight=SheetParser.parse_numerical_attribute(
+            weight=sheets.parse_numerical_attribute(
                 record["weight"], weight_unit, WeightUnit.GRAMS
             ),
             unformatted_measurements=record["unformatted_measurements"],
-            life_stage=SheetParser.parse_life_stage(record["life_stage"]),
-            testes_length=SheetParser.parse_numerical_attribute(
+            life_stage=sheets.parse_life_stage(record["life_stage"]),
+            testes_length=sheets.parse_numerical_attribute(
                 record["testes_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            testes_width=SheetParser.parse_numerical_attribute(
+            testes_width=sheets.parse_numerical_attribute(
                 record["testes_width"], distance_unit, DistanceUnit.MILLIMETERS
             ),
-            embryo_count=SheetParser.parse_integer_attribute(record["embryo_count"]),
-            embryo_count_left=SheetParser.parse_integer_attribute(
+            embryo_count=sheets.parse_integer_attribute(record["embryo_count"]),
+            embryo_count_left=sheets.parse_integer_attribute(
                 record["embryo_count_left"]
             ),
-            embryo_count_right=SheetParser.parse_integer_attribute(
+            embryo_count_right=sheets.parse_integer_attribute(
                 record["embryo_count_right"]
             ),
-            crown_rump_length=SheetParser.parse_numerical_attribute(
+            crown_rump_length=sheets.parse_numerical_attribute(
                 record["crown_rump_length"], distance_unit, DistanceUnit.MILLIMETERS
             ),
             scars=record["scars"],
@@ -203,7 +207,3 @@ class Specimen:
             )
 
         return attributes, unitless_attributes
-
-
-class ReviewNeededException(Exception):
-    pass

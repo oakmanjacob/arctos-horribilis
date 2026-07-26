@@ -8,7 +8,7 @@ ureg = pint.UnitRegistry()
 import streamlit as st
 import pandas as pd
 
-from src.ranges.sheets import SheetParser
+from src.ranges import sheets
 from src.ranges.specimen import Specimen
 
 st.set_page_config(page_title="Verification and Upload", layout="wide")
@@ -29,7 +29,7 @@ warnings = []
 if len(accession_data) == 0:
     warnings.append("The uploaded sheet is empty")
 
-missing_columns = SheetParser.verify_columns_exist(accession_data[0].keys())
+missing_columns = sheets.verify_columns_exist(accession_data[0].keys())
 if len(missing_columns) > 0:
     warnings.append(f"Missing columns in Uploaded File: {missing_columns}")
 

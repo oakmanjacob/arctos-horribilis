@@ -36,328 +36,321 @@ class LifeStage(StrEnum):
         raise ValueError("Invalid lifestage value: ", life_stage)
 
 
-class CellParser:
-    def __init__(self):
-        raise NotImplementedError
+EXPECTED_COLUMNS = [
+    {
+        "column_name": "guid",
+        "valid_names": [],
+        "optional": True,
+    },
+    {
+        "column_name": "mvz_num",
+        "valid_names": ["MVZ #", "MVZ#", "mvz", "mvz_num"],
+        "optional": True,
+    },
+    {
+        "column_name": "collector",
+        "valid_names": ["collector", "collectors", "COLLECTORS"],
+        "optional": True,
+    },
+    {
+        "column_name": "scientific_name",
+        "valid_names": ["scientific_name", "subspecies"],
+        "optional": False,
+    },
+    {
+        "column_name": "date",
+        "valid_names": ["date"],
+        "optional": True,
+    },
+    {
+        "column_name": "total_length",
+        "valid_names": ["total", "total_length", "total length"],
+        "optional": False,
+    },
+    {
+        "column_name": "tail_length",
+        "valid_names": ["tail", "tail_length", "tail length"],
+        "optional": False,
+    },
+    {
+        "column_name": "hind_foot_with_claw",
+        "valid_names": ["hf", "hind_foot_with_claw", "hind foot with claw"],
+        "optional": False,
+    },
+    {
+        "column_name": "ear",
+        "valid_names": ["ear"],
+        "optional": True,
+    },
+    {
+        "column_name": "ear_from_notch",
+        "valid_names": ["Notch", "ear_from_notch"],
+        "optional": True,
+    },
+    {
+        "column_name": "ear_from_crown",
+        "valid_names": ["Crown", "ear_from_crown"],
+        "optional": True,
+    },
+    {
+        "column_name": "tragus_length",
+        "valid_names": ["tragus", "TRAGUS"],
+        "optional": True,
+    },
+    {
+        "column_name": "forearm_length",
+        "valid_names": ["forearm", "FOREARM"],
+        "optional": True,
+    },
+    {
+        "column_name": "distance_unit",
+        "valid_names": ["unit", "distance_units", "length_units"],
+        "optional": False,
+    },
+    {
+        "column_name": "weight",
+        "valid_names": ["wt", "weight"],
+        "optional": False,
+    },
+    {
+        "column_name": "weight_unit",
+        "valid_names": ["units", "weight_unit", "weight_units"],
+        "optional": False,
+    },
+    {
+        "column_name": "life_stage",
+        "valid_names": ["life stage", "lifestage"],
+        "optional": True,
+    },
+    {
+        "column_name": "reproductive_data",
+        "valid_names": ["repro comments", "reproductive data", "reproductive_data"],
+        "optional": False,
+    },
+    {
+        "column_name": "testes_length",
+        "valid_names": ["testes L", "testis L"],
+        "optional": True,
+    },
+    {
+        "column_name": "testes_width",
+        "valid_names": ["testes W", "testes R", "testis W", "testis R"],
+        "optional": True,
+    },
+    {
+        "column_name": "embryo_count",
+        "valid_names": ["emb count"],
+        "optional": True,
+    },
+    {
+        "column_name": "embryo_count_left",
+        "valid_names": ["embs L"],
+        "optional": True,
+    },
+    {
+        "column_name": "embryo_count_right",
+        "valid_names": ["embs R"],
+        "optional": True,
+    },
+    {
+        "column_name": "crown_rump_length",
+        "valid_names": ["emb CR"],
+        "optional": True,
+    },
+    {
+        "column_name": "scars",
+        "valid_names": ["scars"],
+        "optional": True,
+    },
+    {
+        "column_name": "unformatted_measurements",
+        "valid_names": ["unformatted measurements"],
+        "optional": True,
+    },
+    {
+        "column_name": "initials",
+        "valid_names": [
+            "Initials",
+            "tag checked? (or no tag available), initial here",
+        ],
+        "optional": False,
+    },
+    {
+        "column_name": "review_needed",
+        "valid_names": ["REVIEW NEEDED"],
+        "optional": True,
+    },
+]
 
-    def parse(self, raw_value: str) -> any:
-        raise NotImplementedError
 
-    def validate(self, raw_value: str) -> bool:
-        raise NotImplementedError
+def is_recorded(raw_value):
+    if raw_value is None:
+        return False
 
+    if isinstance(raw_value, float) and math.isnan(raw_value):
+        return False
 
-class SheetParser:
-    expected_columns = [
-        {
-            "column_name": "guid",
-            "valid_names": [],
-            "optional": True,
-        },
-        {
-            "column_name": "mvz_num",
-            "valid_names": ["MVZ #", "MVZ#", "mvz", "mvz_num"],
-            "optional": True,
-        },
-        {
-            "column_name": "collector",
-            "valid_names": ["collector", "collectors", "COLLECTORS"],
-            "optional": True,
-        },
-        {
-            "column_name": "scientific_name",
-            "valid_names": ["scientific_name", "subspecies"],
-            "optional": False,
-        },
-        {
-            "column_name": "date",
-            "valid_names": ["date"],
-            "optional": True,
-        },
-        {
-            "column_name": "total_length",
-            "valid_names": ["total", "total_length", "total length"],
-            "optional": False,
-        },
-        {
-            "column_name": "tail_length",
-            "valid_names": ["tail", "tail_length", "tail length"],
-            "optional": False,
-        },
-        {
-            "column_name": "hind_foot_with_claw",
-            "valid_names": ["hf", "hind_foot_with_claw", "hind foot with claw"],
-            "optional": False,
-        },
-        {
-            "column_name": "ear",
-            "valid_names": ["ear"],
-            "optional": True,
-        },
-        {
-            "column_name": "ear_from_notch",
-            "valid_names": ["Notch", "ear_from_notch"],
-            "optional": True,
-        },
-        {
-            "column_name": "ear_from_crown",
-            "valid_names": ["Crown", "ear_from_crown"],
-            "optional": True,
-        },
-        {
-            "column_name": "tragus_length",
-            "valid_names": ["TRAGUS", "tragus"],
-            "optional": True,
-        },
-        {
-            "column_name": "forearm_length",
-            "valid_names": ["FOREARM", "forearm"],
-            "optional": True,
-        },
-        {
-            "column_name": "distance_unit",
-            "valid_names": ["unit", "distance_units", "length_units"],
-            "optional": False,
-        },
-        {
-            "column_name": "weight",
-            "valid_names": ["wt", "weight"],
-            "optional": False,
-        },
-        {
-            "column_name": "weight_unit",
-            "valid_names": ["units", "weight_unit", "weight_units"],
-            "optional": False,
-        },
-        {
-            "column_name": "life_stage",
-            "valid_names": ["life stage", "lifestage"],
-            "optional": True,
-        },
-        {
-            "column_name": "reproductive_data",
-            "valid_names": ["repro comments", "reproductive data", "reproductive_data"],
-            "optional": False,
-        },
-        {
-            "column_name": "testes_length",
-            "valid_names": ["testes L", "testis L"],
-            "optional": True,
-        },
-        {
-            "column_name": "testes_width",
-            "valid_names": ["testes W", "testes R", "testis W", "testis R"],
-            "optional": True,
-        },
-        {
-            "column_name": "embryo_count",
-            "valid_names": ["emb count"],
-            "optional": True,
-        },
-        {
-            "column_name": "embryo_count_left",
-            "valid_names": ["embs L"],
-            "optional": True,
-        },
-        {
-            "column_name": "embryo_count_right",
-            "valid_names": ["embs R"],
-            "optional": True,
-        },
-        {
-            "column_name": "crown_rump_length",
-            "valid_names": ["emb CR"],
-            "optional": True,
-        },
-        {
-            "column_name": "scars",
-            "valid_names": ["scars"],
-            "optional": True,
-        },
-        {
-            "column_name": "unformatted_measurements",
-            "valid_names": ["unformatted measurements"],
-            "optional": True,
-        },
-        {
-            "column_name": "initials",
-            "valid_names": [
-                "Initials",
-                "tag checked? (or no tag available), initial here",
-            ],
-            "optional": False,
-        },
-        {
-            "column_name": "review_needed",
-            "valid_names": ["REVIEW NEEDED"],
-            "optional": True,
-        },
-    ]
+    if isinstance(raw_value, str):
+        value_cleaned = raw_value.strip().lower()
 
-    def is_recorded(raw_value):
-        if raw_value is None:
+        if value_cleaned in [
+            "",
+            "not recorded",
+            "?",
+            "no recorded",
+            "already in arctos",
+            "no measurements",
+            "not recoded",
+            "no data",
+            "null.",
+        ]:
             return False
 
-        if isinstance(raw_value, float) and math.isnan(raw_value):
-            return False
+    return True
 
-        if isinstance(raw_value, str):
-            value_cleaned = raw_value.strip().lower()
 
-            if value_cleaned in [
-                "",
-                "not recorded",
-                "?",
-                "no recorded",
-                "already in arctos",
-                "no measurements",
-                "not recoded",
-                "no data",
-                "null.",
-            ]:
-                return False
+def verify_columns_exist(columns):
+    missing_columns = []
 
-        return True
+    for expected_column in EXPECTED_COLUMNS:
+        found = False
+        for valid_name in expected_column["valid_names"] + [
+            expected_column["column_name"]
+        ]:
+            if valid_name in columns:
+                found = True
 
-    def verify_columns_exist(columns):
-        missing_columns = []
+        if not found and not expected_column["optional"]:
+            missing_columns.append(expected_column["column_name"])
 
-        for expected_column in SheetParser.expected_columns:
-            found = False
-            for valid_name in expected_column["valid_names"] + [
-                expected_column["column_name"]
-            ]:
-                if valid_name in columns:
-                    found = True
+    return missing_columns
 
-            if not found and not expected_column["optional"]:
-                missing_columns.append(expected_column["column_name"])
 
-        return missing_columns
+def extract_record(raw_record):
+    record = {}
 
-    def extract_record(raw_record):
-        record = {}
+    found_columns = set()
+    for expected_column in EXPECTED_COLUMNS:
+        found = False
+        for valid_name in [expected_column["column_name"]] + expected_column[
+            "valid_names"
+        ]:
+            if valid_name in raw_record:
+                column = raw_record[valid_name]
+                if isinstance(column, str):
+                    column = column.strip()
 
-        found_columns = set()
-        for expected_column in SheetParser.expected_columns:
-            found = False
-            for valid_name in [expected_column["column_name"]] + expected_column[
-                "valid_names"
-            ]:
-                if valid_name in raw_record:
-                    column = raw_record[valid_name]
-                    if isinstance(column, str):
-                        column = column.strip()
-
-                    if SheetParser.is_recorded(column):
-                        record[expected_column["column_name"]] = str(column)
-                    else:
-                        record[expected_column["column_name"]] = None
-
-                    found = True
-                    break
-
-            if not found:
-                if expected_column["optional"]:
-                    record[expected_column["column_name"]] = None
+                if is_recorded(column):
+                    record[expected_column["column_name"]] = str(column)
                 else:
-                    raise ValueError(
-                        "Could not find field",
-                        expected_column["column_name"],
-                        raw_record,
-                    )
+                    record[expected_column["column_name"]] = None
+
+                found = True
+                break
+
+        if not found:
+            if expected_column["optional"]:
+                record[expected_column["column_name"]] = None
             else:
-                found_columns.add(expected_column["column_name"])
-
-        if record["ear_from_notch"] is None:
-            record["ear_from_notch"] = record["ear"]
-
-        if record["ear"] is not None and record["ear_from_notch"] != record["ear"]:
-            raise ValueError(
-                "Ear and Notch column mismatched",
-                record["ear"],
-                record["ear_from_notch"],
-                raw_record,
-            )
-
-        if (
-            "ear" not in found_columns
-            and "ear_from_notch" not in found_columns
-            and "ear_from_crown" not in found_columns
-        ):
-            raise ValueError(
-                "Could not find any column for ear measurements", raw_record
-            )
-
-        return record
-
-    def parse_guid(guid: str) -> str:
-        matched = re.match(r"^(?=.{3,20}:[^:]+$)([A-Za-z]+:[A-Za-z]+):([^:]+)$", guid)
-
-        if not matched:
-            raise ValueError("Guid does not match valid Arctos format", guid)
-
-        return matched.group(1), matched.group(2)
-
-    def parse_numerical_attribute(
-        raw_value: str,
-        unit: Union[DistanceUnit, WeightUnit],
-        default: Union[DistanceUnit, WeightUnit],
-    ) -> tuple[Decimal, Union[DistanceUnit, WeightUnit], str]:
-        if raw_value is None:
-            return None, None, None
-
-        if isinstance(default, DistanceUnit):
-            value_cleaned, extracted_unit = DistanceUnit.split_value(raw_value)
-        elif isinstance(default, WeightUnit):
-            value_cleaned, extracted_unit = WeightUnit.split_value(raw_value)
+                raise ValueError(
+                    "Could not find field",
+                    expected_column["column_name"],
+                    raw_record,
+                )
         else:
-            raise ValueError("Invalid default value type")
+            found_columns.add(expected_column["column_name"])
 
-        matched = re.match("(?:([0-9]+) )?([0-9]+)/([1-9][0-9]*)", value_cleaned)
+    if record["ear_from_notch"] is None:
+        record["ear_from_notch"] = record["ear"]
 
-        value = None
-        remarks = None
-        try:
-            if matched:
-                remarks = value_cleaned
-                value = Decimal(matched.group(1) or 0) + (
-                    Decimal(matched.group(2)) / Decimal(matched.group(3))
-                ).quantize(Decimal("0.01"), rounding="ROUND_HALF_EVEN")
-            else:
-                value = Decimal(value_cleaned)
-        except InvalidOperation:
-            remarks = raw_value
+    if record["ear"] is not None and record["ear_from_notch"] != record["ear"]:
+        raise ValueError(
+            "Ear and Notch column mismatched",
+            record["ear"],
+            record["ear_from_notch"],
+            raw_record,
+        )
 
-        if extracted_unit is not None and unit is not None and extracted_unit != unit:
-            print("Unit Mismatched")
+    if (
+        "ear" not in found_columns
+        and "ear_from_notch" not in found_columns
+        and "ear_from_crown" not in found_columns
+    ):
+        raise ValueError("Could not find any column for ear measurements", raw_record)
 
-        if extracted_unit is None:
-            extracted_unit = unit or default
+    return record
 
-        return value, extracted_unit, remarks
 
-    def parse_integer_attribute(raw_value: str) -> tuple[int, str]:
-        if raw_value is None:
-            return None, None
+def parse_guid(guid: str) -> str:
+    matched = re.match(r"^(?=.{3,20}:[^:]+$)([A-Za-z]+:[A-Za-z]+):([^:]+)$", guid)
 
-        value = None
-        remarks = None
-        try:
-            value = int(raw_value.strip())
-        except ValueError:
-            remarks = raw_value
+    if not matched:
+        raise ValueError("Guid does not match valid Arctos format", guid)
 
-        return value, remarks
+    return matched.group(1), matched.group(2)
 
-    def parse_life_stage(raw_value: str) -> tuple[LifeStage, str]:
-        if raw_value is None:
-            return None, None
 
-        life_stage = LifeStage.parse(raw_value)
-        remarks = ""
+def parse_numerical_attribute(
+    raw_value: str,
+    unit: Union[DistanceUnit, WeightUnit],
+    default: Union[DistanceUnit, WeightUnit],
+) -> tuple[Decimal, Union[DistanceUnit, WeightUnit], str]:
+    if raw_value is None:
+        return None, None, None
 
-        if life_stage != raw_value:
-            remarks = f'Originally reported as "{raw_value}" - TTA'
+    if isinstance(default, DistanceUnit):
+        value_cleaned, extracted_unit = DistanceUnit.split_value(raw_value)
+    elif isinstance(default, WeightUnit):
+        value_cleaned, extracted_unit = WeightUnit.split_value(raw_value)
+    else:
+        raise ValueError("Invalid default value type")
 
-        return life_stage, remarks
+    matched = re.match("(?:([0-9]+) )?([0-9]+)/([1-9][0-9]*)", value_cleaned)
+
+    value = None
+    remarks = None
+    try:
+        if matched:
+            remarks = value_cleaned
+            value = Decimal(matched.group(1) or 0) + (
+                Decimal(matched.group(2)) / Decimal(matched.group(3))
+            ).quantize(Decimal("0.01"), rounding="ROUND_HALF_EVEN")
+        else:
+            value = Decimal(value_cleaned)
+    except InvalidOperation:
+        remarks = raw_value
+
+    if extracted_unit is not None and unit is not None and extracted_unit != unit:
+        print("Unit Mismatched", value_cleaned, unit, default)
+
+    if extracted_unit is None:
+        extracted_unit = unit or default
+
+    return value, extracted_unit, remarks
+
+
+def parse_integer_attribute(raw_value: str) -> tuple[int, str]:
+    if raw_value is None:
+        return None, None
+
+    value = None
+    remarks = None
+    try:
+        value = int(raw_value.strip())
+    except ValueError:
+        remarks = raw_value
+
+    return value, remarks
+
+
+def parse_life_stage(raw_value: str) -> tuple[LifeStage, str]:
+    if raw_value is None:
+        return None, None
+
+    life_stage = LifeStage.parse(raw_value)
+    remarks = ""
+
+    if life_stage.value != raw_value:
+        remarks = f'Originally reported as "{raw_value}" - TTA'
+
+    return life_stage, remarks
