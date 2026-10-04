@@ -43,7 +43,7 @@ THREAD_COUNT = 4
 @on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
-def get_query_parameters():
+def get_query_parameters() -> list:
     """Calls the Arctos API to get the columns which can be filtered on in get_records."""
 
     params = {
@@ -59,7 +59,7 @@ def get_query_parameters():
 @on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
-def get_result_parameters():
+def get_result_parameters() -> list:
     """Calls the Arctos API to get the columns which can be included in a get_records result."""
 
     params = {
@@ -127,7 +127,7 @@ def call_query_api(
 @on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
-def call_table_api(table: str, start: int = 0):
+def call_table_api(table: str, start: int = 0) -> dict:
     """Internal function for pulling records from a cached query result table."""
 
     params = {

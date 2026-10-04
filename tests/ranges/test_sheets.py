@@ -1,5 +1,4 @@
 import unittest
-
 from decimal import Decimal
 
 from src.ranges import sheets
@@ -7,7 +6,6 @@ from src.ranges.units import DistanceUnit, WeightUnit
 
 
 class TestSheets(unittest.TestCase):
-
     def test_is_recorded(self):
         self.assertFalse(sheets.is_recorded("not Recorded"))
         self.assertFalse(sheets.is_recorded("NOT RECORDED"))
@@ -95,7 +93,7 @@ class TestSheets(unittest.TestCase):
         number, unit, text = sheets.parse_numerical_attribute(
             "65 oz", None, WeightUnit.GRAMS
         )
-        self.assertEqual(number, Decimal("65"))
+        self.assertEqual(number, Decimal(65))
         self.assertEqual(unit, WeightUnit.OUNCES)
         self.assertIsNone(text)
 
@@ -111,12 +109,12 @@ class TestSheets(unittest.TestCase):
         self.assertIsNone(unit)
         self.assertIsNone(text)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             number, unit, text = sheets.parse_numerical_attribute(
                 "123", None, "millimeteres"
             )
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             number, unit, text = sheets.parse_numerical_attribute("123", None, None)
 
 

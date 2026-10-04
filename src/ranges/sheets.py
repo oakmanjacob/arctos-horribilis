@@ -2,7 +2,6 @@ import math
 import re
 from decimal import Decimal, InvalidOperation
 from enum import StrEnum
-from typing import Union
 
 from src.ranges.units import DistanceUnit, WeightUnit
 
@@ -291,9 +290,9 @@ def parse_guid(guid: str) -> str:
 
 def parse_numerical_attribute(
     raw_value: str,
-    unit: Union[DistanceUnit, WeightUnit],
-    default: Union[DistanceUnit, WeightUnit],
-) -> tuple[Decimal, Union[DistanceUnit, WeightUnit], str]:
+    unit: DistanceUnit | WeightUnit,
+    default: DistanceUnit | WeightUnit,
+) -> tuple[Decimal, DistanceUnit | WeightUnit, str]:
     if raw_value is None:
         return None, None, None
 
@@ -302,7 +301,7 @@ def parse_numerical_attribute(
     elif isinstance(default, WeightUnit):
         value_cleaned, extracted_unit = WeightUnit.split_value(raw_value)
     else:
-        raise ValueError("Invalid default value type")
+        raise TypeError("Invalid default value type")
 
     matched = re.match("(?:([0-9]+) )?([0-9]+)/([1-9][0-9]*)", value_cleaned)
 

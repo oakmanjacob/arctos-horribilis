@@ -16,7 +16,7 @@ class WeightUnit(enum.StrEnum):
 
     REGEX_ALIAS_MATCH = enum.nonmember(
         re.compile(
-            f"^(.+?[0-9|\s])\s*({'|'.join(GRAMS_ALIAS + KILOGRAMS_ALIAS + OUNCES_ALIAS + POUNDS_ALIAS)})$"
+            f"^(.+?[0-9|\\s])\\s*({'|'.join(GRAMS_ALIAS + KILOGRAMS_ALIAS + OUNCES_ALIAS + POUNDS_ALIAS)})$"
         )
     )
 
