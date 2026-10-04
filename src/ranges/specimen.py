@@ -1,8 +1,8 @@
 import dataclasses
 from decimal import Decimal
 
-from src.ranges.units import DistanceUnit, WeightUnit
 from src.ranges import sheets
+from src.ranges.units import DistanceUnit, WeightUnit
 
 
 class ReviewNeededException(Exception):
@@ -49,7 +49,7 @@ class Specimen:
         guid = (
             ":".join(sheets.parse_guid(record["guid"]))
             if record["guid"]
-            else f"MVZ:Mamm:{int(record["mvz_num"])}"
+            else f"MVZ:Mamm:{int(record['mvz_num'])}"
         )
         distance_unit = DistanceUnit.from_string(record["distance_unit"])
         weight_unit = WeightUnit.from_string(record["weight_unit"])

@@ -24,15 +24,15 @@ hitting the API many times for even relatviely limited queries.
 Why they did this, I can't say. People just liked it better that way.
 """
 
-import os
-import operator
-import requests
 import itertools
-
+import operator
+import os
 from concurrent.futures import ThreadPoolExecutor
 from functools import reduce
+
+import requests
+from backoff import expo, on_exception
 from ratelimit import limits, sleep_and_retry
-from backoff import on_exception, expo
 
 API_URL = "https://arctos.database.museum/component/api/v2/catalog.cfc"
 API_KEY = os.environ.get("ARCTOS_API_KEY")
@@ -72,14 +72,16 @@ def get_result_parameters():
     return response.json()["RESULTS_PARAMS"]
 
 
-def get_records(query: dict, columns: list = None, limit: int = None):
+def get_records(
+    query: dict, columns: list | None = None, limit: int | None = None
+) -> list[dict]:
     """Gets filtered specimen records from Arctos.
-    
+
     Args:
         query: A dictionary defining a list of columns to filter.
         columns: A list of the columns which should be returned in the final result.
         limit: The maximum number of records to return.
-    
+
     Returns:
         A list of dictionaries which represent each record returned by the query.
     """
@@ -90,9 +92,9 @@ def get_records(query: dict, columns: list = None, limit: int = None):
     table = initial_response["tbl"]
 
     pool = ThreadPoolExecutor(max_workers=THREAD_COUNT)
-    responses = pool.map(call_table_api,
-                         itertools.repeat(table),
-                         range(0, total_records, BATCH_SIZE))
+    responses = pool.map(
+        call_table_api, itertools.repeat(table), range(0, total_records, BATCH_SIZE)
+    )
     pool.shutdown()
 
     return reduce(operator.concat, [response["DATA"] for response in responses])
@@ -101,7 +103,9 @@ def get_records(query: dict, columns: list = None, limit: int = None):
 @on_exception(expo, requests.exceptions.Timeout, max_tries=3)
 @sleep_and_retry
 @limits(calls=1, period=10)
-def call_query_api(query: dict, columns: list = None, limit: int = None):
+def call_query_api(
+    query: dict, columns: list | None = None, limit: int | None = None
+) -> dict:
     """Internal function for making an initial query to Arctos and getting the cached table name."""
 
     if query is not None:

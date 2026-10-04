@@ -1,12 +1,13 @@
-import io
 import csv
+import io
+
 import pint
 import plotly.express as px
 
 ureg = pint.UnitRegistry()
 
-import streamlit as st
 import pandas as pd
+import streamlit as st
 
 from src.ranges import sheets
 from src.ranges.specimen import Specimen
@@ -215,7 +216,6 @@ for specimen in specimens:
                 if float(
                     arctos_data_lookup[(attribute["guid"], attribute["attribute_type"])]
                 ) != float(attribute["attribute_value"]):
-
                     failures.append(
                         {
                             "guid": attribute["guid"],

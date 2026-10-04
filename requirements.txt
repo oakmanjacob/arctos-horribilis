@@ -3,3 +3,5 @@ plotly
 pint
 streamlit==1.55.0
 standard-imghdr
+backoff
+ratelimit

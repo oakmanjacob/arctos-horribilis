@@ -1,9 +1,8 @@
 import math
 import re
-
 from decimal import Decimal, InvalidOperation
-from typing import Union
 from enum import StrEnum
+from typing import Union
 
 from src.ranges.units import DistanceUnit, WeightUnit
 
